@@ -1,6 +1,27 @@
 body {
   margin: 0;
   text-align: center;
+  font-family: 'Open Sans', serif;
+}
+
+a {
+  padding: .3em;
+  color: #000;
+  text-decoration: none;
+
+  transition: background-color .3s;
+}
+a:hover {
+  color: #FFF;
+  background-color: #000;
+}
+
+nav ul {
+  padding: 0;
+  list-style: none;
+}
+nav ul li {
+  display: inline;
 }
 
 .container {
@@ -8,10 +29,19 @@ body {
   width: 70%;
 }
 
-h1.title {
-  padding-bottom: .2em;
-  border-bottom: 1px solid #000;
-  font-size: 4.5em;
-  font-family: 'Tulpen One', helvetica;
+.title {
+  margin: 15% auto 0 auto;
+  font-size: 4em;
+  font-family: 'Tulpen One', 'Times New Roman', serif;
+  -webkit-user-select: none;
+}
+
+.slogan {
+  font-weight: normal;
+}
+
+.index-ornament {
+  margin-top: 0;
+  font-weight: normal;
   -webkit-user-select: none;
 }
