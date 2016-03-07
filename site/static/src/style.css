@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  text-align: center;
+}
+
+.container {
+  margin: 0 auto;
+  width: 70%;
+}
+
+h1.title {
+  padding-bottom: .2em;
+  border-bottom: 1px solid #000;
+  font-size: 4.5em;
+  font-family: 'Tulpen One', helvetica;
+  -webkit-user-select: none;
+}
