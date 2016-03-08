@@ -1,15 +1,20 @@
 body {
   margin: 0;
   text-align: center;
-  font-family: 'Open Sans', serif;
+  font-family: 'Oxygen', serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-weight: normal;
 }
 
 a {
   padding: .3em;
   color: #000;
   text-decoration: none;
-
   transition: background-color .3s;
+  -webkit-transition: background-color .3s;
 }
 a:hover {
   color: #FFF;
@@ -26,22 +31,55 @@ nav ul li {
 
 .container {
   margin: 0 auto;
-  width: 70%;
+  width: 60%;
 }
 
 .title {
   margin: 15% auto 0 auto;
+  font-family: 'Stint Ultra Condensed', 'Times New Roman', serif;
   font-size: 4em;
-  font-family: 'Tulpen One', 'Times New Roman', serif;
   -webkit-user-select: none;
+  cursor: default;
 }
-
-.slogan {
-  font-weight: normal;
-}
+  .title a:hover {
+    color: #000;
+    background-color: transparent;
+  }
 
 .index-ornament {
   margin-top: 0;
-  font-weight: normal;
+  font-family: 'Stint Ultra Condensed', 'Times New Roman', serif;
   -webkit-user-select: none;
+  cursor: default;
+}
+
+.post {
+  padding: 1em;
+  margin-bottom: 1em;
+  text-align: left;
+  box-shadow: 4px 6px #eee;
+}
+  .post h1 {
+    margin: 0;
+    font-family: 'PT Sans Narrow', helvetica;
+  }
+    .post h1 a:hover {
+      color: royalblue;
+      background-color: transparent;
+    }
+  .date {
+    font-size: .5em;
+    color: #333;
+  }
+
+.post-container {
+  padding: 1em;
+  box-shadow: 4px 6px #eee;
+}
+  .post-body {
+    text-align: left;
+  }
+  .post-body h1 {
+    font-family: 'PT Sans Narrow', helvetica;
+  }
 }
