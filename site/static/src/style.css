@@ -31,7 +31,13 @@ nav ul li {
 
 .container {
   margin: 0 auto;
-  width: 60%;
+  width: 95%;
+}
+@media screen and (min-width: 640px) {
+  .container {
+    margin: 0 auto;
+    width: 60%;
+  }
 }
 
 .title {

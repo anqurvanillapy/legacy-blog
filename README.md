@@ -54,6 +54,11 @@ Requirements
 - `Markdown == 2.6.5`
 - `beautifulsoup4 == 4.4.1`
 
+TODO
+----
+
+* [ ] Update auto-commit method using `ghp-import` and `argparse`
+* [ ] Use [Disqus](https://disqus.com/) as commenting plugin
 
 License
 -------
