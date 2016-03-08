@@ -4,11 +4,13 @@
 import os
 import codecs
 import markdown
+from bs4 import BeautifulSoup
+from datetime import datetime
 from jinja2 import *
 
 
-class Publish(object):
-    """Publish all the md fies in content folder"""
+class SSG(object):
+    """Publish all the Markdown files in content folder"""
     def __init__(self):
         self.mddir = 'content/'
         self.htmldir = 'site/'
@@ -19,8 +21,8 @@ class Publish(object):
     def clean(self, htmldir):
         for item in os.listdir(htmldir):
             if os.path.isfile(htmldir + item):
-                if os.path.splitext(item)[1] in ['html', 'htm']:
-                    try:    
+                if os.path.splitext(item)[1] in ['.html', '.htm']:
+                    try:
                         os.remove(htmldir + item)
                     except:
                         print('error: unable to delete {0}'.format(item))
@@ -47,16 +49,25 @@ class Publish(object):
         if not valid_md:
             print('warning: nothing to publish')
             return
+        valid_md = sorted(valid_md, key=lambda md: md.split('-')[0], reverse=True)
 
         try:
             posts = []
-            for md in valid_md:
-                with codecs.open(md, 'r', encoding='utf-8') as filehandle:
-                    html = markdown.markdown(filehandle.read())
-                    fn = os.path.splitext(os.path.basename(md))[0]
+            for post in valid_md:
+                with codecs.open(post, 'r', encoding='utf-8') as filehandle:
+                    html = BeautifulSoup(markdown.markdown(filehandle.read()), 'lxml')
+                    html.html.hidden = True
+                    html.body.hidden = True # remove html and body tags
+                    fn = os.path.splitext(os.path.basename(post))[0]
+                    title = html.h1.string
+                    date = datetime.strptime(fn.split('-')[0], "%Y%m%d").strftime("%B %d %Y")
+                    html.find('h1').extract() # remove title after getting it
                     post = {
-                        'filename': '%s%s.html' % (self.htmldir, fn),
-                        'html': html
+                        'filepath': '%s%s.html' % (self.htmldir, fn),
+                        'fnext': '%s.html' % fn,
+                        'title': title,
+                        'date': date.upper(),
+                        'content': html
                     }
                     posts.append(post)
         except Exception, e:
@@ -65,26 +76,23 @@ class Publish(object):
         return posts
 
     def publish(self, posts):
-        env = Environment(loader=PackageLoader('publish', '../templates'))
+        env = Environment(loader=PackageLoader('src', '../templates'))
         index_tmpl = env.get_template('index.tmpl')
-        layout_tmpl = env.get_template('layout.tmpl')
+        post_tmpl = env.get_template('post.tmpl')
 
         try:
             with open('site/index.html', 'w') as filehandle:
-                filehandle.write(index_tmpl.render(posts=len(posts)))
+                filehandle.write(index_tmpl.render(posts=posts))
         except Exception, e:
             raise e
 
         try:
-            for ch in posts:
+            for post in posts:
                 with codecs.open(
-                    ch['filename'], 'w',
+                    post['filepath'], 'w',
                     encoding='utf-8',
                     errors='xmlcharrefreplace'
                 ) as filehandle:
-                    filehandle.write(layout_tmpl.render(
-                        title='Chapter ' + os.path.splitext(ch['filename'])[0][-1],
-                        content=ch['html'])
-                    )
+                    filehandle.write(post_tmpl.render(post=post))
         except Exception, e:
             raise e

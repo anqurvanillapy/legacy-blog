@@ -10,7 +10,7 @@
   <link href='https://fonts.googleapis.com/css?family=Stint+Ultra+Condensed|Oxygen|PT+Sans+Narrow' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="../site/static/src/style.css">
 
-  <title>Who Am I, Actually? | Horrible RAM</title>
+  <title>{{ post['title'] }} | Horrible RAM</title>
 </head>
 <body>
   <div class="container">
@@ -26,9 +26,9 @@
 
     <div class="post-container">
       <div class="post-body">
-        <p>&#x224B; Mar 8, 2016</p>
-        <h1>WHO AM I, ACTUALLY?</h1>
-        <p>Hey, my name is AnqurVanillapy. I'm a fucking poser.</p>
+        <p>&#x224B; {{ post['date'] }}</p>
+        <h1>{{ post['title'] }}</h1>
+        {{ post['content'] }}
       </div>
     </div>
 
