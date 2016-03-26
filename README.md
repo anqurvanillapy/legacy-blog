@@ -59,6 +59,7 @@ TODO
 
 * [ ] Update auto-commit method using `ghp-import` and `argparse`
 * [ ] Use [Disqus](https://disqus.com/) as commenting plugin
+* [ ] Code block hightlighting
 
 License
 -------
