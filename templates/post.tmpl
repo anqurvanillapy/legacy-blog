@@ -11,29 +11,47 @@
   <link rel="stylesheet" type="text/css" href="static/src/style.css">
 
   <title>{{ post['title'] }} | Horrible RAM</title>
+
+  <style type="text/css">
+  /* Style for code highlighting */
+  {{ post['hlcss'] }}
+  /* no code block bg color */
+  .codehilite {
+    background-color: transparent;
+  }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1 class="title"><a href="/">Horrible RAM</a></h1>
+    <h1 class="title"><a href="index.html">Horrible RAM</a></h1>
     <nav>
       <ul>
-        <li><a href="https://plus.google.com/u/0/115122874409553592361">&#x224B; G+</a></li>
-        <li><a href="https://github.com/anqurvanillapy">&#x224B; GitHub</a></li>
-        <li><a href="https://twitter.com/anqurvanillapy">&#x224B; Twitter</a></li>
+        <li><a href="https://plus.google.com/u/0/115122874409553592361">&#x224b; G+</a></li>
+        <li><a href="https://github.com/anqurvanillapy">&#x224b; GitHub</a></li>
+        <li><a href="https://twitter.com/anqurvanillapy">&#x224b; Twitter</a></li>
+        <li><a href="cv.html">&#x224b; CV</a></li>
       </ul>
     </nav>
     <h2 class="index-ornament">&mdash; &#x269C; &mdash;</h2>
 
     <div class="post-container">
       <div class="post-body">
-        <p>&#x224B; {{ post['date'] }}</p>
+        {% if post['date'] %}
+          <p>&#x224b; {{ post['date'] }}</p>
+        {% endif %}
         <h1>{{ post['title'] }}</h1>
         {{ post['content'] }}
       </div>
     </div>
 
     <p class="copy">
-      &copy; 2016. A Blog by
+      &copy;
+      {% if thisyear == inityear %}
+         {{ inityear }}.
+      {% else %}
+        {{ inityear }}-{{ thisyear }}.
+      {% endif %}
+      A Blog by
       <a href="https://github.com/anqurvanillapy"><u>AnqurVanillapy</u></a>.
       <em>Time is running out. Make a move.</em>
     </p>
