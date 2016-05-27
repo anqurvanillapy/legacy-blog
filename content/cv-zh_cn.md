@@ -6,9 +6,9 @@
 - 永久链接: [anqurvanillapy.github.io/cv-zh_cn.html](https://anqurvanillapy.github.io/cv-zh_cn.html)
 - 可打印版本: [English](printable/cv.html) / [中文](printable/cv-zh_cn.html)
 
-## 卢星宇 (花名 AnqurVanillapy)
+## 卢星宇 (别名 AnqurVanillapy)
 
-- 出生1996年, 四年一次生日.
+- 1996年出生, 四年一次生日.
 - 家乡为海南省海口市. 现于广东省珠海市入学.
 - 搜索 **AnqurVanillapy** 即可获得我的所有社交信息.
 - 发送电邮至 [anqurvanillapy@gmail.com](mailto:anqurvanillapy@gmail.com).
