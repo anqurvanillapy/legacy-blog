@@ -1,6 +1,6 @@
 # 个人履历
 
-[Eng](cv.html) / [中文](cv-zh_cn.html)
+[English](cv.html) / [中文](cv-zh_cn.html)
 
 - 截止至: **2016年5月28日**
 - 永久链接: [anqurvanillapy.github.io/cv-zh_cn.html](https://anqurvanillapy.github.io/cv-zh_cn.html)
@@ -11,12 +11,12 @@
 - 出生1996年, 四年一次生日.
 - 家乡为海南省海口市. 现于广东省珠海市入学.
 - 搜索 **AnqurVanillapy** 即可获得我的所有社交信息.
-- 发送电邮至 [anqurvanillapy@gmail.com](mailto:anqurvanillapy@gmail.com)
+- 发送电邮至 [anqurvanillapy@gmail.com](mailto:anqurvanillapy@gmail.com).
 
 ## 教育情况
 
 - 暨南大学珠海校区
-    + 2014至今, 软件工程专业 (本科四年制)
+    + 2014至今, 软件工程专业 (本科四年制).
 
 ## 工作经历
 
@@ -24,7 +24,7 @@
     + 暨南人网络联盟 (共青团暨南大学珠海校区工作委员会)
         + 2014~2015: 部门干事.
         + 2015~2016: 正部长.
-    + 暨大开发者社区 (电气信息学院团委学生会)
+    + 暨大开发者社区 (暨南大学珠海校区电气信息学院团委学生会)
         + 2014~2015: 部门干事.
         + 2015~2016: 技术主管.
 - 于学生社团

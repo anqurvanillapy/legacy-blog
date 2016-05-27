@@ -4,19 +4,19 @@
 
 - As of: **May 28th, 2016**
 - Permalink: [anqurvanillapy.github.io/cv.html](https://anqurvanillapy.github.io/cv.html)
-- Printable Version: [English](printable/cv.html) / [中文](printable/cv-zh_cn.html)
+- Printable Versions: [English](printable/cv.html) / [中文](printable/cv-zh_cn.html)
 
 ## Xingyu Lu (a.k.a. AnqurVanillapy)
 
 - Born on the leap day, 1996.
 - Haikou, Hainan, my hometown. Now in Zhuhai, Guangdong.
 - Search for **AnqurVanillapy**. All about me.
-- Email me at [anqurvanillapy@gmail.com](mailto:anqurvanillapy@gmail.com)
+- Email me at [anqurvanillapy@gmail.com](mailto:anqurvanillapy@gmail.com).
 
 ## Education
 
 - Jinan University Zhuhai Campus
-    + 2014~now, Software Engineering (four-year undergraduate)
+    + 2014~now, Software Engineering (four-year undergraduate).
 
 ## Working Experiences
 
