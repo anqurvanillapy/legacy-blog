@@ -3,7 +3,7 @@
 [Eng](cv.html) / [中文](cv-zh_cn.html)
 
 - 截止至: **2016年5月28日**
-- 永久链接: [anqurvanillapy.github.io/cv.html](https://anqurvanillapy.github.io/cv.html)
+- 永久链接: [anqurvanillapy.github.io/cv-zh_cn.html](https://anqurvanillapy.github.io/cv-zh_cn.html)
 - 可打印版本: [English](printable/cv.html) / [中文](printable/cv-zh_cn.html)
 
 ## 卢星宇 (花名 AnqurVanillapy)
