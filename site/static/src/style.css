@@ -23,6 +23,9 @@ a {
 a:hover {
   color: royalblue;
 }
+h1 a {
+  text-decoration: none;
+}
 
 nav ul li a {
   padding: .3em;
@@ -67,9 +70,6 @@ blockquote {
   font-size: 4em;
   -webkit-user-select: none;
   cursor: default;
-}
-.title a {
-  text-decoration: none;
 }
 
 .index-ornament {
