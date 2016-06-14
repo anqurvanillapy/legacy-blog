@@ -1,0 +1,35 @@
+# Toy Project: Embed Binary DSF In Browser Engine #
+
+Since the development of web app and some progressive web operating systems is
+trending (e.g. Chrome OS, Firefox OS), many developers and communities keep
+improving the performance of UI components written in HTML and CSS, and also the
+JavaScript UI frameworks.
+
+In my points of view, as a text-based serialization format, HTML could be more
+compact for constructing the native UI components and even no need to be so
+human-readable. And the DOM parser and the CSS parser could be optimized for
+faster building the parse tree and creating the attachment of both (On WebKit,
+DOM tree and style rules will be attached before constructing the render tree).
+For further asynchronously DOM rendering, some objects could be also compiled
+ahead of time for swapping the initial DOM tree if possible.
+
+![render-engine-main-flow-webkit](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/webkitflow.png)
+
+<center>
+***Fig. WebKit main flow of rendering***
+</center>
+
+Thus, I am trying to embed a binary DSF (data serialization format) in the
+middle of the work flow of DOM and CSS parsing, and additionally create some
+JavaScript APIs for combining future-render DOM with the initial DOM tree, also
+the swapping methods if this way of optimization is feasible.
+
+As a matter of fact, I am more concerned about the web-based operating system
+going mobile, on which a local database may be attached with a filesystem (or a
+filesystem is implemented by a database), and therefore I might pre-store the
+query statements in the DSF for the synchronous or asynchronous data
+transferring.
+
+Well, hope that I can make it.
+
+*(WIP)*

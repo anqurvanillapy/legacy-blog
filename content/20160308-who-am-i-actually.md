@@ -1,6 +1,6 @@
 # WHO AM I, ACTUALLY? #
 
-![avatar](https://avatars1.githubusercontent.com/u/9910794?v=3&s=460)
+<img width="50%" src="https://avatars1.githubusercontent.com/u/9910794?v=3&s=460">
 
 Ni Hao. My name is **AnqurVanillapy**, a China-based amateur cave
 explorer majoring in Software Engineering since 2014. Besides this
