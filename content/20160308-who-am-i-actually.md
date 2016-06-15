@@ -120,6 +120,8 @@ Also, it's a slight refernce to the David Fincher's film,
 ethic that attracts me much. In the film, main character Mikael
 Blomkvist buys a **Marlboro Red** after he losing a libel case.
 
+> "Keep calm and smoke this little byte of cigarettes"
+
 ## References ##
 
 1. Original codes can be found on my

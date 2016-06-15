@@ -59,7 +59,7 @@ TODO
 
 * [ ] Update auto-commit method using `ghp-import` and `argparse`
 * [ ] Use [Disqus](https://disqus.com/) as commenting plugin
-* [x] Code block hightlighting
+* [x] ~~Code block hightlighting~~
 * [ ] Use a dev server to utilize hot reloading
 
 License

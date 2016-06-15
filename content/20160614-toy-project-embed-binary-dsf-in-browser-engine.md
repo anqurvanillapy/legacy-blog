@@ -1,4 +1,4 @@
-# Toy Project: Embed Binary DSF In Browser Engine #
+# TOY PROJECT: EMBED BINARY DSF IN BROWSER ENGINE #
 
 Since the development of web app and some progressive web operating systems is
 trending (e.g. Chrome OS, Firefox OS), many developers and communities keep
@@ -25,11 +25,23 @@ JavaScript APIs for combining future-render DOM with the initial DOM tree, also
 the swapping methods if this way of optimization is feasible.
 
 As a matter of fact, I am more concerned about the web-based operating system
-going mobile, on which a local database may be attached with a filesystem (or a
-filesystem is implemented by a database), and therefore I might pre-store the
+going mobile, on which a local database may be associated with a filesystem (or
+a filesystem is implemented by a database), and therefore I might pre-store the
 query statements in the DSF for the synchronous or asynchronous data
 transferring.
 
 Well, hope that I can make it.
 
+## A Compiler Nature for HTML
+
+In spite of the parsing algorithms of HTML and CSS, most of the browsers have
+error tolerance to support well-known cases of invalid HTML, and share a
+forgiving nature for this language <sup>[[1]](#ref1)</sup>.
+
 *(WIP)*
+
+## References ##
+
+1. *The parsing algorithm* section from
+[How browsers work](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/#The_parsing_algorithm).
+<a name="ref1"></a>
