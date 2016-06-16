@@ -79,9 +79,11 @@
 .codehilite .vg { color: #19177C } /* Name.Variable.Global */
 .codehilite .vi { color: #19177C } /* Name.Variable.Instance */
 .codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
-  /* no code block bg color */
+  /* padding and overflow for code block */
   .codehilite {
-    background-color: transparent;
+    padding: .1em .5em;
+    border-radius: 5px;
+    overflow: overlay;
   }
   </style>
 </head>
@@ -133,7 +135,28 @@ transferring.</p>
 <h2>A Compiler Nature for HTML</h2>
 <p>In spite of the parsing algorithms of HTML and CSS, most of the browsers have
 error tolerance to support well-known cases of invalid HTML, and share a
-forgiving nature for this language <sup><a href="#ref1">[1]</a></sup>.</p>
+forgiving nature for this language <sup><a href="#ref1">[1]</a></sup>. But inspired by
+Python XML/HTML processing module <a href="http://lxml.de">lxml</a>, a compiler nature can
+be brought to this structured language, strictly parsing it for those treated
+as contents and components. And we can do easy templating within the <code>lxml</code>
+instances for associating style rules with HTML.</p>
+<p>Initially, highly optimization of ahead-of-time compilation could simply be
+ignored, for it is not a big deal already. So I choose to use Python to
+implement a pre-builder for re-structuring the HTML and CSS files, and a
+compiler for translating into binary data.</p>
+<p>Doing parsing with <code>lxml</code> is easy, but I prefer <code>bs4</code> (namely <code>BeautifulSoup4</code>)
+which can contain <code>lxml</code> as the parser and feels good in normal use. The first
+thing we can do is opening a file and parsing it, and extracting all the
+comments within the document in which there may be some links of scripts for the
+legacy browsers, because we are making it more platform-specific.</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span><span class="p">,</span> <span class="n">Comment</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'index.html'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">filehandle</span><span class="p">:</span>
+    <span class="n">dom</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">filehandle</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="s1">'lxml'</span><span class="p">)</span>
+    <span class="n">cmts</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Comment</span><span class="p">))</span>
+    <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cmts</span><span class="p">]</span>
+</pre></div>
+<h2>Choosing A Format</h2>
 <p><em>(WIP)</em></p>
 <h2>References</h2>
 <ol>
