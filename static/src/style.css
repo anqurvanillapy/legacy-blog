@@ -3,14 +3,14 @@ body {
   text-align: center;
   font-family: 'Oxygen', serif;
   -webkit-font-smoothing: antialiased;
+  color: #333;
 }
 
 h1, h2, h3 {
   font-weight: normal;
 }
 
-img {
-  min-width: 50%;
+img:not(.license) {
   max-width: 75%;
   display: block;
   margin: 0 auto;
@@ -77,8 +77,11 @@ blockquote {
 .index-ornament {
   margin-top: 0;
   font-family: 'Stint Ultra Condensed', 'Times New Roman', serif;
-  -webkit-user-select: none;
   cursor: default;
+}
+
+.no-select {
+  -webkit-user-select: none;
 }
 
 .post {
