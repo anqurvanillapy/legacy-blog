@@ -1,4 +1,4 @@
-# TOY PROJECT: EMBED BINARY DSF IN BROWSER ENGINE #
+# TOY PROJECT: EMBED BINARY DSF IN BROWSER ENGINE
 
 Since the development of web app and some progressive web operating systems is
 trending (e.g. Chrome OS, Firefox OS), many developers and communities keep
@@ -36,11 +36,37 @@ Well, hope that I can make it.
 
 In spite of the parsing algorithms of HTML and CSS, most of the browsers have
 error tolerance to support well-known cases of invalid HTML, and share a
-forgiving nature for this language <sup>[[1]](#ref1)</sup>.
+forgiving nature for this language <sup>[[1]](#ref1)</sup>. But inspired by
+Python XML/HTML processing module [lxml](http://lxml.de), a compiler nature can
+be brought to this structured language, strictly parsing it for those treated
+as contents and components. And we can do easy templating within the `lxml`
+instances for associating style rules with HTML.
+
+Initially, highly optimization of ahead-of-time compilation could simply be
+ignored, for it is not a big deal already. So I choose to use Python to
+implement a pre-builder for re-structuring the HTML and CSS files, and a
+compiler for translating into binary data.
+
+Doing parsing with `lxml` is easy, but I prefer `bs4` (namely `BeautifulSoup4`)
+which can contain `lxml` as the parser and feels good in normal use. The first
+thing we can do is opening a file and parsing it, and extracting all the
+comments within the document in which there may be some links of scripts for the
+legacy browsers, because we are making it more platform-specific.
+
+```python
+from bs4 import BeautifulSoup, Comment
+
+with open('index.html', 'r') as filehandle:
+    dom = BeautifulSoup(filehandle.read(), 'lxml')
+    cmts = dom.findAll(text=lambda t:isinstance(t, Comment))
+    [c.extract() for c in cmts]
+```
+
+## Choosing A Format
 
 *(WIP)*
 
-## References ##
+## References
 
 1. *The parsing algorithm* section from
 [How browsers work](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/#The_parsing_algorithm).

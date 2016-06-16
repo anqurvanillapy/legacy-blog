@@ -1,4 +1,4 @@
-# WHO AM I, ACTUALLY? #
+# WHO AM I, ACTUALLY?
 
 <img width="50%" src="https://avatars1.githubusercontent.com/u/9910794?v=3&s=460">
 
@@ -6,7 +6,7 @@ Ni Hao. My name is **AnqurVanillapy**, a China-based amateur cave
 explorer majoring in Software Engineering since 2014. Besides this
 full pseudonym, I simply call myself **Anqur**.
 
-## TL; DR ##
+## TL; DR
 
 - I write Python, C, JavaScript, mostly engaged in Web development.
 - In love with programmer pragmatism and internet subgenres of
@@ -23,7 +23,7 @@ receive my universtiy education.
     + System architecture
     + Functional programming
 
-## Why ANQUR? ##
+## Why ANQUR?
 
 **Anqur** means *enjoyment* (*安趣<sup>儿</sup>*) in Chinese, a brief
 statement of a paragraph accidently taken from my high school textbook
@@ -34,7 +34,7 @@ further I expended these to a phrase:
 > 安于生趣，然趣之安在？  
 > Enjoy my life, but where is the joy?
 
-## Why VANILLAPY? ##
+## Why VANILLAPY?
 
 Since November 2014, I participated in an educational five-week
 campaign of programming, known as
@@ -57,7 +57,7 @@ identifying myself a programmer.
 
 So yes, *Vanilla is the power*.
 
-## Slogan ##
+## Slogan
 
 > Time is running out. Make a move.
 
@@ -77,7 +77,7 @@ know that, romance is just a **vaporware** like the character of
 *City Pop* in Japanese society. Just feel the *ass dead dicks* of life
 <sup>[[2]](#ref2)</sup>.
 
-## Early Years ##
+## Early Years
 
 I spent my teenage mainly in music, games and was quite obssessed with
 the magic of the Internet. Before my entering college, I produced four
@@ -109,7 +109,7 @@ storylines of my own FPS game in dreams, attempting to realize them in
 the days I have a better command of programming. Teenager passions,
 whatever.
 
-## Why HORRIBLE RAM? ##
+## Why HORRIBLE RAM?
 
 *Horrible* can be similarly read as *Orobl*, and the confusing word
 **Orobl RAM** (namely *oroblram*) is just the palindrome of the famous
@@ -122,7 +122,7 @@ Blomkvist buys a **Marlboro Red** after he losing a libel case.
 
 > "Keep calm and smoke this little byte of cigarettes"
 
-## References ##
+## References
 
 1. Original codes can be found on my
 [GitCafe repository](https://gitcafe.com/anqurvanillapy/mailpop). <a name="ref1"></a>
