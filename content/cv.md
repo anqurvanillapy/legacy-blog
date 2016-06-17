@@ -27,7 +27,7 @@
     + Jinan Developer Community (of CYL College Committee And Student Union):
         + 2014~2015: Officer.
         + 2015~2016: Tech Leader.
-- In student Associations:
+- In student associations:
     + JNU Guitar Society:
         + 2014~2015: Officer.
         + 2015~2016: Minister (dropped out).
