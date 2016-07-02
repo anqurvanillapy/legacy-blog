@@ -113,4 +113,8 @@ blockquote {
   .post-body h1 {
     font-family: 'PT Sans Narrow', helvetica;
   }
+  article > p:last-of-type:after {
+    content: " \220E";
+    color: #333;
+  }
 }
