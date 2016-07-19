@@ -75,7 +75,7 @@ class SSG(object):
                         'fnext': '%s.html' % fn,
                         'title': title,
                         'date': date,
-                        'content': html,
+                        'content': html.decode('utf-8'),
                         'hlcss': hlcss  # FIXME: waste of memory
                     }
                     posts.append(post)
@@ -94,7 +94,7 @@ class SSG(object):
                 filehandle.write(index_tmpl.render(
                     posts=posts,
                     inityear=self.inityear,
-                    thisyear=self.thisyear))    # FIXME: use layouts
+                    thisyear=self.thisyear).encode('utf-8'))    # FIXME: use layouts
         except Exception, e:
             raise e
 
