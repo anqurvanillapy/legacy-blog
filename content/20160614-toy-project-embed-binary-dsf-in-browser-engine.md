@@ -68,7 +68,7 @@ with open('index.html', 'r') as filehandle:
 
 ## Changelog
 
-- 14 June 2016, started this post
+- 14 June 2016, started this post.
 
 ## References
 
