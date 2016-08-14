@@ -66,6 +66,10 @@ with open('index.html', 'r') as filehandle:
 
 *(WIP)*
 
+## Changelog
+
+- 14 June 2016, started this post
+
 ## References
 
 1. *The parsing algorithm* section from
