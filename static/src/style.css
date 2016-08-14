@@ -119,6 +119,7 @@ blockquote {
     text-align: left;
   }
   .post-body h1 {
+    font-weight: bold;
     font-family: 'PT Sans Narrow', helvetica;
   }
   article > p:last-of-type:after {
