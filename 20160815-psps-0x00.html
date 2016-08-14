@@ -10,7 +10,7 @@
   <link href='https://fonts.googleapis.com/css?family=Stint+Ultra+Condensed|Oxygen|PT+Sans+Narrow' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="static/src/style.css">
 
-  <title>TOY PROJECT: EMBED BINARY DSF IN BROWSER ENGINE | Horrible RAM</title>
+  <title>PsPs 0x00 | Horrible RAM</title>
 
   <style type="text/css">
   /* style for code highlighting */
@@ -118,148 +118,164 @@
       <div class="post-body">
         <article>
           
-            <p>&#x224b; JUNE 14 2016</p>
+            <p>&#x224b; AUGUST 15 2016</p>
           
-          <h1>TOY PROJECT: EMBED BINARY DSF IN BROWSER ENGINE</h1>
-            <p>
-   Since the development of web app and some progressive web operating systems is
-trending (e.g. Chrome OS, Firefox OS), many developers and communities keep
-improving the performance of UI components written in HTML and CSS, and also the
-JavaScript UI frameworks.
-  </p>
-  <p>
-   In my points of view, as a text-based serialization format, HTML could be more
-compact for constructing the native UI components and even no need to be so
-human-readable. And the DOM parser and the CSS parser could be optimized for
-faster building the parse tree and creating the attachment of both (On WebKit,
-DOM tree and style rules will be attached before constructing the render tree).
-For further asynchronously DOM rendering, some objects could be also compiled
-ahead of time for swapping the initial DOM tree if possible.
-  </p>
-  <p>
-   <img alt="render-engine-main-flow-webkit" src="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/webkitflow.png"/>
-  </p>
-  <p>
-  </p>
-  <center>
-   <strong>
-    <em>
-     Fig. WebKit main flow of rendering
-    </em>
-   </strong>
-  </center>
-  <p>
-   Thus, I am trying to embed a binary DSF (data serialization format) in the
-middle of the work flow of DOM and CSS parsing, and additionally create some
-JavaScript APIs for combining future-render DOM with the initial DOM tree, also
-the swapping methods if this way of optimization is feasible.
-  </p>
-  <p>
-   As a matter of fact, I am more concerned about the web-based operating system
-going mobile, on which a local database may be associated with a filesystem (or
-a filesystem is implemented by a database), and therefore I might pre-store the
-query statements in the DSF for the synchronous or asynchronous data
-transferring.
-  </p>
-  <p>
-   Well, hope that I can make it.
-  </p>
-  <h2>
-   A Compiler Nature for HTML
-  </h2>
-  <p>
-   In spite of the parsing algorithms of HTML and CSS, most of the browsers have
-error tolerance to support well-known cases of invalid HTML, and share a
-forgiving nature for this language
-   <sup>
-    <a href="#ref1">
-     [1]
-    </a>
-   </sup>
-   . But inspired by
-Python XML/HTML processing module
-   <a href="http://lxml.de">
-    lxml
-   </a>
-   , a compiler nature can
-be brought to this structured language, strictly parsing it for those treated
-as contents and components. And we can do easy templating within the
-   <code>
-    lxml
-   </code>
-   instances for associating style rules with HTML.
-  </p>
-  <p>
-   Initially, highly optimization of ahead-of-time compilation could simply be
-ignored, for it is not a big deal already. So I choose to use Python to
-implement a pre-builder for re-structuring the HTML and CSS files, and a
-compiler for translating into binary data.
-  </p>
-  <p>
-   Doing parsing with
-   <code>
-    lxml
-   </code>
-   is easy, but I prefer
-   <code>
-    bs4
-   </code>
-   (namely
-   <code>
-    BeautifulSoup4
-   </code>
-   )
-which can contain
-   <code>
-    lxml
-   </code>
-   as the parser and feels good in normal use. The first
-thing we can do is opening a file and parsing it, and extracting all the
-comments within the document in which there may be some links of scripts for the
-legacy browsers, because we are making it more platform-specific.
-  </p>
-  <div class="codehilite">
-   <pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span><span class="p">,</span> <span class="n">Comment</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'index.html'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">filehandle</span><span class="p">:</span>
-    <span class="n">dom</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">filehandle</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="s1">'lxml'</span><span class="p">)</span>
-    <span class="n">cmts</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Comment</span><span class="p">))</span>
-    <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cmts</span><span class="p">]</span>
-</pre>
-  </div>
-  <h2>
-   Choosing A Format
+          <h1>PsPs 0x00</h1>
+            <h2>
+   Foreword
   </h2>
   <p>
    <em>
-    (WIP)
+    PsPs
    </em>
+   is the abbreviation of
+   <strong>
+    Post-Snooze Problem Set
+   </strong>
+   and, as what it says,
+just some simple problem sets literally coming out from my waking up, but
+sometimes they are just some whims.
+  </p>
+  <p>
+   The problem set solutions are unspectacularly personal and not personable, more
+like a private note-taking behavior or putting my finger on what it is which
+sticks hard in my brain.
+  </p>
+  <p>
+   So on paper, it is not gonna be like an enthralling newsletter you will come to
+expect or accidently wow you, while I do actually start this subtle, soft-spoken
+segment, with about 5 problems in a single post.
+  </p>
+  <h2>
+   0. Random iteration using Python 3
+  </h2>
+  <p>
+   I am an addict of visiting some sites where some folks or some lonely webmasters
+share some relatable images. And one of the sites is equipped with a button that
+can shuffle the images and re-arrange the pagination with really decent speed.
+So I came away from it with such a question like
+  </p>
+  <blockquote>
+   <p>
+    Given a list with 10,000 elements, how to randomly iterate the items and pop
+several ones in the same number every time for the purpose of pagination?
+   </p>
+  </blockquote>
+  <p>
+   I tried to solve it with Python 3.5.2, which is built-in on Ubuntu 16.04 LTS
+that I am using, and it is obvious that generating the list comes first for the
+question.
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">seq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">9999</span><span class="p">))</span>
+</pre>
+  </div>
+  <p>
+   Well it is so remarkably easy. But I should notice that
+   <code>
+    range
+   </code>
+   is kind of like
+   <code>
+    xrange
+   </code>
+   and totally different from that in Python 2.7, which generates the
+complete yet hellish list, but we should say
+   <code>
+    xrange
+   </code>
+   is remained in Python 3
+while it is
+   <a href="http://stackoverflow.com/questions/15014310/why-is-there-no-xrange-function-in-python3">
+    tested
+   </a>
+   as a bit quicker than Python 3's
+   <code>
+    range
+   </code>
+   . Furthermore, when
+   <code>
+    range
+   </code>
+   object
+becomes
+   <code>
+    list
+   </code>
+   , it illustrates a transition from immutability to mutability.
+  </p>
+  <p>
+   And then, import our magical module and shuffle the list!
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="c1"># list is mutable</span>
+</pre>
+  </div>
+  <p>
+   Now the sequence is shuffled and looks beautiful when I print them (imagine you
+have done the printing with me. Alright it is unnecessary). So we can pop them
+into another sequence for pagination just as putting out something like image ID
+from the database. And the shuffled sequence can be stored in the client side
+(looks not that decent huh?).
+  </p>
+  <p>
+   Anyway, the speed is satisfactory if it becomes a part of an HTTP request.
+  </p>
+  <div class="codehilite">
+   <pre><span></span>python3 -c<span class="s1">'import random;seq=list(range(9999));random.shuffle(seq)'</span>  0.08s user 0.02s system 99% cpu 0.097 total
+</pre>
+  </div>
+  <p>
+   Back to the game, k1d!
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">page</span> <span class="o">=</span> <span class="p">[</span><span class="n">seq</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span> <span class="c1"># 10 items in a page</span>
+</pre>
+  </div>
+  <p>
+   But the sequence was once shuffled so the order now is never critical. So I can
+use slices with page index and item number per page defined.
+  </p>
+  <div class="codehilite">
+   <pre><span></span><span class="n">page_index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">page_items</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">page_index</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">page_index</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">page_items</span><span class="p">]</span> <span class="c1"># seems kinda ugly now</span>
+</pre>
+  </div>
+  <p>
+   Well, things done, and I give my kudos to
+   <code>
+    random.shuffle()
+   </code>
+   which is
+essentially magical and makes this solution easy...as hell.
+  </p>
+  <h3>
+   Nailed It N YU STUCK?
+  </h3>
+  <p>
+   I suggest it will be more interesting if I use other languages like PHP or C to
+solve this question, so for more of the time I was thinking about the
+algorithmic stuff which is sometimes painful for me and kinda off-kilter if
+productivity is heavily concerned, and yes I love Python, when I got
+   <code>
+    random.shuffle()
+   </code>
+   I totally threw off the nerdy cool things. Maybe some day
+I will be as bold as picking them up in my inventive garage.
   </p>
   <h2>
    Changelog
   </h2>
   <ul>
    <li>
-    14 June 2016, started this post
+    15 August 2016, started this post with problem set 0
+   </li>
+   <li>
+    On the same day I gave the solution
    </li>
   </ul>
-  <h2>
-   References
-  </h2>
-  <ol>
-   <li>
-    <em>
-     The parsing algorithm
-    </em>
-    section from
-    <a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/#The_parsing_algorithm">
-     How browsers work
-    </a>
-    .
-    <a name="ref1">
-    </a>
-   </li>
-  </ol>
         </article>
       </div>
     </div>
