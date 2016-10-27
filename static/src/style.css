@@ -71,7 +71,7 @@ blockquote {
 }
 
 .title {
-  margin: 15% auto 0 auto;
+  margin: 12% auto 0 auto;
   -webkit-user-select: none;
   cursor: default;
 }
@@ -80,6 +80,7 @@ blockquote {
     font-size: 4px;
     font-family: monospace;
     line-height: 1;
+    text-shadow: #000 0 0 2px;
   }
 
 .index-ornament {
