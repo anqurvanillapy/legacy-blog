@@ -10,23 +10,12 @@
   <link href='https://fonts.googleapis.com/css?family=Stint+Ultra+Condensed|Oxygen|PT+Sans+Narrow' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="static/src/style.css">
 
-  <title>{{ post['title'] }} | Horrible RAM</title>
-
-  <style type="text/css">
-  /* style for code highlighting */
-  {{ post['hlcss'] }}
-  /* padding and overflow for code block */
-  .codehilite {
-    padding: .1em .5em;
-    border-radius: 5px;
-    overflow: overlay;
-  }
-  </style>
+  <title>Horrible RAM | AnqurVanillapy's Blog</title>
 </head>
 <body>
   <div class="container">
     <header class="title">
-      <a href="index.html">
+      <a href="/">
         <pre>
  ▄▀▀▄ ▄▄   ▄▀▀▀▀▄   ▄▀▀▄▀▀▀▄  ▄▀▀▄▀▀▀▄  ▄▀▀█▀▄    ▄▀▀█▄▄   ▄▀▀▀▀▄     ▄▀▀█▄▄▄▄  ▄▀▀▄▀▀▀▄  ▄▀▀█▄   ▄▀▀▄ ▄▀▄ 
 █  █   ▄▀ █      █ █   █   █ █   █   █ █   █  █  ▐ ▄▀   █ █    █     ▐  ▄▀   ▐ █   █   █ ▐ ▄▀ ▀▄ █  █ ▀  █ 
@@ -50,39 +39,7 @@
 
     <h2 class="index-ornament no-select">&mdash; &#x2020; &mdash;</h2>
 
-    <div class="post-container">
-      <div class="post-body">
-        <article>
-          {% if post['date'] %}
-            <p>&#x224b; {{ post['date'] }}</p>
-          {% endif %}
-          <h1>{{ post['title'] }}</h1>
-          {{ post['content'] }}
-        </article>
-      </div>
-    </div>
-
-    <footer>
-      <h2 class="index-ornament no-select">&ldquo; Back to <a href="#"> #title</a>? &rdquo;</h2>
-      <small>
-      <p class="copy"><code>
-        &#x2774;
-        {% if thisyear == inityear %}
-          est: "{{ inityear }}",
-        {% else %}
-          active: "{{ inityear }}-{{ thisyear }}",
-        {% endif %}
-        content: "A Blog by
-        <a href="https://github.com/anqurvanillapy/anqurvanillapy.github.io/tree/src">AnqurVanillapy</a>",
-        license:
-        "<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">cc-by-sa-4.0</a>"
-        &#x2775;
-      </code></p>
-      <p class="slogan no-select">
-        <code>/* Time is running out. Make a move. */</code>
-      </p>
-      </small>
-    </footer>
+    {% block main %}{% endblock %}
   </div>
 </body>
 </html>

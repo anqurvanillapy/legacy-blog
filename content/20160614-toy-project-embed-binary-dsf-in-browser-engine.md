@@ -1,4 +1,5 @@
-# TOY PROJECT: EMBED BINARY DSF IN BROWSER ENGINE
+title:  TOY PROJECT: EMBED BINARY DSF IN BROWSER ENGINE
+date:   Jun 14, 2016
 
 Since the development of web app and some progressive web operating systems is
 trending (e.g. Chrome OS, Firefox OS), many developers and communities keep

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block main %}
+{% for item in content %}
+<div class="post">
+  <h1>&#x224b; <a href="{{ item['fname'] }}">{{ item['title'] }}</a>
+    <span class="date">{{ item['date'] }}</span>
+  </h1>
+</div>
+{% endfor %}
+
+<footer>
+  <h2 class="index-ornament no-select">&ldquo; Sup, memer? &rdquo;</h2>
+  <small>
+  <p class="copy"><code>
+    &#x2774;
+    est: "2016", content: "A Blog by
+    <a href="https://github.com/anqurvanillapy/anqurvanillapy.github.io/tree/src">AnqurVanillapy</a>",
+    license:
+    "<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">cc-by-sa-4.0</a>"
+    &#x2775;
+  </code></p>
+  <p class="slogan no-select">
+    <code>/* Time is running out. Make a move. */</code>
+  </p>
+  </small>
+</footer>
+{% endblock %}

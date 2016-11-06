@@ -1,4 +1,5 @@
-# CURRICULUM VITAE
+title:  CURRICULUM VITAE
+type:   misc
 
 > [English](cv.html) / [中文](cv-zh_cn.html).
 

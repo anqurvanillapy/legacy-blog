@@ -1,4 +1,5 @@
-# 个人履历
+title:  个人履历
+type:   misc
 
 > [English](cv.html) / [中文](cv-zh_cn.html).
 
