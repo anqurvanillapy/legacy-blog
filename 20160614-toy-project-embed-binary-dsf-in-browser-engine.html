@@ -6,46 +6,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="AnqurVanillapy's Blog">
   <meta name="author" content="AnqurVanillapy">
-  <link rel="icon" href="static/img/favicon.ico">
-  <link href='https://fonts.googleapis.com/css?family=Stint+Ultra+Condensed|Oxygen|PT+Sans+Narrow' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="static/src/style.css">
 
-  <title>Horrible RAM | AnqurVanillapy's Blog</title>
+  <link rel="icon" href="static/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="static/codehilite.css">
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+
+  <title>Toy Project: Embed Binary DSF In Browser Engine</title>
 </head>
 <body>
-  <div class="container">
-    <header class="title">
-      <a href="/">
-        <pre>
- ▄▀▀▄ ▄▄   ▄▀▀▀▀▄   ▄▀▀▄▀▀▀▄  ▄▀▀▄▀▀▀▄  ▄▀▀█▀▄    ▄▀▀█▄▄   ▄▀▀▀▀▄     ▄▀▀█▄▄▄▄  ▄▀▀▄▀▀▀▄  ▄▀▀█▄   ▄▀▀▄ ▄▀▄ 
-█  █   ▄▀ █      █ █   █   █ █   █   █ █   █  █  ▐ ▄▀   █ █    █     ▐  ▄▀   ▐ █   █   █ ▐ ▄▀ ▀▄ █  █ ▀  █ 
-▐  █▄▄▄█  █      █ ▐  █▀▀█▀  ▐  █▀▀█▀  ▐   █  ▐    █▄▄▄▀  ▐    █       █▄▄▄▄▄  ▐  █▀▀█▀    █▄▄▄█ ▐  █    █ 
-   █   █  ▀▄    ▄▀  ▄▀    █   ▄▀    █      █       █   █      █        █    ▌   ▄▀    █   ▄▀   █   █    █  
-  ▄▀  ▄▀    ▀▀▀▀   █     █   █     █    ▄▀▀▀▀▀▄   ▄▀▄▄▄▀    ▄▀▄▄▄▄▄▄▀ ▄▀▄▄▄▄   █     █   █   ▄▀  ▄▀   ▄▀   
- █   █             ▐     ▐   ▐     ▐   █       █ █    ▐     █         █    ▐   ▐     ▐   ▐   ▐   █    █    
- ▐   ▐                                 ▐       ▐ ▐          ▐         ▐                          ▐    ▐    
-        </pre>
-      </a>
-    </header>
+<header>
+<pre>
+<a href="/">
+ ██░ ██  ▒█████   ██▀███   ██▀███   ██▓ ▄▄▄▄    ██▓    ▓█████  ██▀███   ▄▄▄       ███▄ ▄███▓
+▓██░ ██▒▒██▒  ██▒▓██ ▒ ██▒▓██ ▒ ██▒▓██▒▓█████▄ ▓██▒    ▓█   ▀ ▓██ ▒ ██▒▒████▄    ▓██▒▀█▀ ██▒
+▒██▀▀██░▒██░  ██▒▓██ ░▄█ ▒▓██ ░▄█ ▒▒██▒▒██▒ ▄██▒██░    ▒███   ▓██ ░▄█ ▒▒██  ▀█▄  ▓██    ▓██░
+░▓█ ░██ ▒██   ██░▒██▀▀█▄  ▒██▀▀█▄  ░██░▒██░█▀  ▒██░    ▒▓█  ▄ ▒██▀▀█▄  ░██▄▄▄▄██ ▒██    ▒██ 
+░▓█▒░██▓░ ████▓▒░░██▓ ▒██▒░██▓ ▒██▒░██░░▓█  ▀█▓░██████▒░▒████▒░██▓ ▒██▒ ▓█   ▓██▒▒██▒   ░██▒
+ ▒ ░░▒░▒░ ▒░▒░▒░ ░ ▒▓ ░▒▓░░ ▒▓ ░▒▓░░▓  ░▒▓███▀▒░ ▒░▓  ░░░ ▒░ ░░ ▒▓ ░▒▓░ ▒▒   ▓▒█░░ ▒░   ░  ░
+</a>
+</pre>
 
-    <nav>
-      <ul>
-        <li><a href="https://plus.google.com/+AnqurVanillapy">&#x224b; G+</a></li>
-        <li><a href="https://github.com/anqurvanillapy">&#x224b; GitHub</a></li>
-        <li><a href="https://twitter.com/anqurvanillapy">&#x224b; Twitter</a></li>
-        <li><a href="cv.html">&#x224b; CV</a></li>
-      </ul>
-    </nav>
+<nav>
+  <a href="https://github.com/anqurvanillapy">Code</a></li>
+  <a href="https://plus.google.com/+AnqurVanillapy">G+</a></li>
+  <a href="20160308-who-am-i-actually.html">About</a></li>
+  <a href="cv.html">CV</a></li>
+</nav>
 
-    <h2 class="index-ornament no-select">&mdash; &#x2020; &mdash;</h2>
+<pre>
+<a href="/">
+ ▒ ░▒░ ░  ░ ▒ ▒░   ░▒ ░ ▒░  ░▒ ░ ▒░ ▒ ░▒░▒   ░ ░ ░ ▒  ░ ░ ░  ░  ░▒ ░ ▒░  ▒   ▒▒ ░░  ░      ░
+ ░  ░░ ░░ ░ ░ ▒    ░░   ░   ░░   ░  ▒ ░ ░    ░   ░ ░      ░     ░░   ░   ░   ▒   ░      ░   
+ ░  ░  ░    ░ ░     ░        ░      ░   ░          ░  ░   ░  ░   ░           ░  ░       ░   
+                                             ░                                              
+</a>
+</pre>
 
+<blockquote>
+  <em>A blog of @anqurvanillapy.</em>
+</blockquote>
+</header>
+
+<main>
+
+<article>
+  <h1>Toy Project: Embed Binary DSF In Browser Engine</h1>
+  <p>
     
-<div class="post-container">
-  <div class="post-body">
-    <article>
-      <p>&#x224b; Jun 14, 2016</p>
-      <h1>TOY PROJECT: EMBED BINARY DSF IN BROWSER ENGINE</h1>
-      <p>Since the development of web app and some progressive web operating systems is
+    <a href="properties.html#PoC">#PoC</a>
+    
+  </p>
+  <time>Jun 14, 2016</time>
+  <p>Since the development of web app and some progressive web operating systems is
 trending (e.g. Chrome OS, Firefox OS), many developers and communities keep
 improving the performance of UI components written in HTML and CSS, and also the
 JavaScript UI frameworks.</p>
@@ -70,7 +82,7 @@ a filesystem is implemented by a database), and therefore I might pre-store the
 query statements in the DSF for the synchronous or asynchronous data
 transferring.</p>
 <p>Well, hope that I can make it.</p>
-<h2>A Compiler Nature for HTML</h2>
+<h2>A Compiler nature for HTML</h2>
 <p>In spite of the parsing algorithms of HTML and CSS, most of the browsers have
 error tolerance to support well-known cases of invalid HTML, and share a
 forgiving nature for this language <sup><a href="#ref1">[1]</a></sup>. But inspired by
@@ -94,7 +106,7 @@ legacy browsers, because we are making it more platform-specific.</p>
     <span class="n">cmts</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Comment</span><span class="p">))</span>
     <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cmts</span><span class="p">]</span>
 </pre></div>
-<h2>Choosing A Format</h2>
+<h2>Choosing a format</h2>
 <p><em>(WIP)</em></p>
 <h2>Changelog</h2>
 <ul>
@@ -106,27 +118,16 @@ legacy browsers, because we are making it more platform-specific.</p>
 <a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/#The_parsing_algorithm">How browsers work</a>.
 <a name="ref1"></a></li>
 </ol>
-    </article>
-  </div>
-</div>
+
+  <footer>Back to <a href="#">#top</a></footer>
+</article>
+
+</main>
 
 <footer>
-  <h2 class="index-ornament no-select">&ldquo; Back to <a href="#"> #title</a>? &rdquo;</h2>
-  <small>
-  <p class="copy"><code>
-    &#x2774;
-    est: "2016", content: "A Blog by
-    <a href="https://github.com/anqurvanillapy/anqurvanillapy.github.io/tree/src">AnqurVanillapy</a>",
-    license:
-    "<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">cc-by-sa-4.0</a>"
-    &#x2775;
-  </code></p>
-  <p class="slogan no-select">
-    <code>/* Time is running out. Make a move. */</code>
-  </p>
-  </small>
+<pre>
+$ echo "Gvzr vf ehaavat bhg. Znxr n zbir." | rot13
+</pre>
 </footer>
-
-  </div>
 </body>
 </html>
