@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% set title = 'cd tags/' %}
+{% block main %}
+<article>
+  {% for prop in content.keys() %}
+  <section>
+      <p id="#{{ prop }}"><a href="#{{ prop }}">#</a> {{ prop }}</p>
+      <ul>
+        {% for p in content[prop] %}
+        <li>
+          <a href="{{ p['fname'] }}">{{ p['title'] }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+  </section>
+  {% endfor %}
+</article>
+{% endblock %}

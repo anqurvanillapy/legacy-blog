@@ -1,7 +1,6 @@
-title:  WHO AM I, ACTUALLY?
-date:   Mar 08, 2016
-
-<img width="50%" src="https://avatars1.githubusercontent.com/u/9910794?v=3&s=460">
+title:      Who Am I, Actually?
+date:       Mar 08, 2016
+properties: me_irl
 
 Ni Hao. My name is **AnqurVanillapy**, a China-based amateur cave
 explorer majoring in Software Engineering since 2014. Besides this
@@ -78,7 +77,7 @@ know that, romance is just a **vaporware** like the character of
 *City Pop* in Japanese society. Just feel the *ass dead dicks* of life
 <sup>[[2]](#ref2)</sup>.
 
-## Early Years
+## Early years
 
 I spent my teenage mainly in music, games and was quite obssessed with
 the magic of the Internet. Before my entering college, I produced four

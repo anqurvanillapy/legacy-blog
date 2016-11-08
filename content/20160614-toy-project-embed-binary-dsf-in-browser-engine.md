@@ -1,5 +1,6 @@
-title:  TOY PROJECT: EMBED BINARY DSF IN BROWSER ENGINE
-date:   Jun 14, 2016
+title:      Toy Project: Embed Binary DSF In Browser Engine
+date:       Jun 14, 2016
+properties: PoC
 
 Since the development of web app and some progressive web operating systems is
 trending (e.g. Chrome OS, Firefox OS), many developers and communities keep
@@ -33,7 +34,7 @@ transferring.
 
 Well, hope that I can make it.
 
-## A Compiler Nature for HTML
+## A Compiler nature for HTML
 
 In spite of the parsing algorithms of HTML and CSS, most of the browsers have
 error tolerance to support well-known cases of invalid HTML, and share a
@@ -63,7 +64,7 @@ with open('index.html', 'r') as filehandle:
     [c.extract() for c in cmts]
 ```
 
-## Choosing A Format
+## Choosing a format
 
 *(WIP)*
 
