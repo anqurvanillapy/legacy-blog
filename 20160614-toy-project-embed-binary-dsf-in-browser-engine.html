@@ -68,10 +68,10 @@ faster building the parse tree and creating the attachment of both (On WebKit,
 DOM tree and style rules will be attached before constructing the render tree).
 For further asynchronously DOM rendering, some objects could be also compiled
 ahead of time for swapping the initial DOM tree if possible.</p>
-<p><img alt="render-engine-main-flow-webkit" src="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/webkitflow.png"/></p>
-<p></p><center>
-<strong><em>Fig. WebKit main flow of rendering</em></strong>
-</center>
+<figure>
+<img alt="render-engine-main-flow-webkit" src="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/webkitflow.png"/>
+<figcaption>Fig. WebKit main flow of rendering</figcaption>
+</figure>
 <p>Thus, I am trying to embed a binary DSF (data serialization format) in the
 middle of the work flow of DOM and CSS parsing, and additionally create some
 JavaScript APIs for combining future-render DOM with the initial DOM tree, also
