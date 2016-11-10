@@ -15,11 +15,11 @@ DOM tree and style rules will be attached before constructing the render tree).
 For further asynchronously DOM rendering, some objects could be also compiled
 ahead of time for swapping the initial DOM tree if possible.
 
-![render-engine-main-flow-webkit](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/webkitflow.png)
-
-<center>
-***Fig. WebKit main flow of rendering***
-</center>
+<figure>
+  <img src="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/webkitflow.png"
+       alt="render-engine-main-flow-webkit">
+  <figcaption>Fig. WebKit main flow of rendering</figcaption>
+</figure>
 
 Thus, I am trying to embed a binary DSF (data serialization format) in the
 middle of the work flow of DOM and CSS parsing, and additionally create some

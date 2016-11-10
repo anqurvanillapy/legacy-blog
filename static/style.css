@@ -40,6 +40,12 @@ img {
   max-width: 100%;
 }
 
+figcaption {
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
 header, footer {
   margin-top: 1em;
   text-align: center;
