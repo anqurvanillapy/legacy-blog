@@ -1,6 +1,7 @@
-title:        Homemade NoSQL
-date:         Nov 11, 2016
-properties:   exercise
+title:        Homemade NoSQL. Part 1
+date:         Nov 18, 2016
+properties:   homemade
+              codereading
               db
 
 *NoSQL* moniker underwent a great surge of popularity in recent years due to the
@@ -10,7 +11,7 @@ like big data.
 
 > Buzzwords, buzzwords everywhere.
 
-Some weeks ago, I was browsing the `Lib` direcory in `py35` source to do some
+Some weeks ago, I was browsing the `Lib` directory in `py35` source to do some
 code reading, where I got a module that provides a
 [geohashing algorithm](https://xkcd.com/426/) and a wrapper based on several
 successors of the Unix's simple database engine,
