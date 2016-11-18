@@ -53,6 +53,8 @@ header, footer {
   header pre {
     margin: 0;
     line-height: 1;
+    font-family: "Courier New", monospace;
+    text-shadow: 0 0 .3px #111;
     font-size: 1.5vw;
     user-select: none;
   }
