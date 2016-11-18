@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="static/codehilite.css">
   <link rel="stylesheet" type="text/css" href="static/style.css">
 
-  <title>sudo -i -u horrible-ram</title>
+  <title>Homemade NoSQL</title>
 </head>
 <body>
 <header>
@@ -49,29 +49,49 @@
 
 <main>
 
-<ul>
-  
-  <li>
-    <time>Nov 11, 2016</time>
-    <a href="20161118-homemade-nosql.html">Homemade NoSQL</a>
-  </li>
-  
-  <li>
-    <time>Aug 15, 2016</time>
-    <a href="20160815-psps-0x00.html">PsPs 0x00</a>
-  </li>
-  
-  <li>
-    <time>Jun 14, 2016</time>
-    <a href="20160614-toy-project-embed-binary-dsf-in-browser-engine.html">Toy Project: Embed Binary DSF In Browser Engine</a>
-  </li>
-  
-  <li>
-    <time>Mar 08, 2016</time>
-    <a href="20160308-who-am-i-actually.html">Who Am I, Actually?</a>
-  </li>
-  
-</ul>
+<article>
+  <h1>Homemade NoSQL</h1>
+  <p>
+    
+    <a href="properties.html#exercise">#exercise</a>
+    
+    <a href="properties.html#db">#db</a>
+    
+  </p>
+  <time>Nov 11, 2016</time>
+  <p><em>NoSQL</em> moniker underwent a great surge of popularity in recent years due to the
+spread of some key-value store (KVDB) and document store databases, although
+NoSQL could be extended as <em>not only SQL</em> and meet some demand in other areas
+like big data.</p>
+<blockquote>
+<p>Buzzwords, buzzwords everywhere.</p>
+</blockquote>
+<p>Some weeks ago, I was browsing the <code>Lib</code> direcory in <code>py35</code> source to do some
+code reading, where I got a module that provides a
+<a href="https://xkcd.com/426/">geohashing algorithm</a> and a wrapper based on several
+successors of the Unix's simple database engine,
+<a href="https://en.wikipedia.org/wiki/Dbm">dbm</a>. After playing the geohash for a while,
+I decided to implement the fallback <code>dbm</code> module initially written in Python for
+handling the unavailability of <code>ndbm</code> and <code>gdbm</code>, by using <code>Node.js v6.0.0</code>. The
+fallback module is simply called <code>dbm.dumb</code>.</p>
+<p>By the way, <code>dbm</code> is so-called a pre-relational database that uses a both
+in-memory and on-disk key-value store, based on extensible hashing. What a NoSQL
+database in the late 1970s...</p>
+<p>The implementation of <code>dbm.dumb</code> is really clear. It inherits the
+<code>MutableMapping</code> abstract base class and additionally implements some abstract
+methods like <code>__setitem__</code> and <code>__delitem__</code> for mutable use. It stores three
+kinds of files, whose extensions are <code>.dat</code>, <code>.dir</code> and <code>.bak</code>, where the <code>.dat</code>
+is <code>latin1</code>-encoded that stores the values, which are aligned by a block size
+constant to set the boundaries for compactness (maybe overriding-prone), <code>.dir</code>,
+AKA directory file, contains the keys and a pair of their positions
+(file offset) and value sizes, and <code>.bak</code> is the backup of the directory file.
+In memory, the class inheriting the <code>py35</code>'s mutable mappings, which acts
+seemingly like a <code>dict</code>, easily copes with the Python-style indexing (but it
+needs to be <code>bytes</code> object, e.g. <code>foo[b'bar'] = b'baz'</code>).</p>
+<p>(WIP)</p>
+
+  <footer>Back to <a href="#">#top</a></footer>
+</article>
 
 </main>
 
