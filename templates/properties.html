@@ -4,7 +4,7 @@
 <article>
   {% for prop in content.keys() %}
   <section>
-      <p id="#{{ prop }}"><a href="#{{ prop }}">#</a> {{ prop }}</p>
+      <p id="{{ prop }}"><a href="#{{ prop }}">#</a> {{ prop }}</p>
       <ul>
         {% for p in content[prop] %}
         <li>
