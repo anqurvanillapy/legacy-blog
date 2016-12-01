@@ -65,15 +65,13 @@ like a private note-taking behavior or putting my finger on what it is which
 sticks hard in my brain.</p>
 <p>So on paper, it is not gonna be like an enthralling newsletter that you will
 come to expect or can accidently wow you, while I do actually start this subtle,
-soft-spoken segment, with about 5 problems in a single post.</p>
-<p>Here comes the first deadly issue, my friend.</p>
+soft-spoken segment, with about 3 problems in a single post.</p>
+<p>Here comes the first hellish issue, folks.</p>
 <h2>Contents</h2>
 <ul>
 <li>0x0000 Random iteration using py35</li>
 <li>0x0001 NaN the naughty k1d</li>
-<li>0x0002 Fork with buffer</li>
-<li>0x0003 One-line 24 game</li>
-<li>0x0004 C Magic in Encoding? Nah</li>
+<li>0x0002 One-line 24 game</li>
 </ul>
 <h2>0. Random iteration using py35</h2>
 <p>I am an addict of visiting some sites where folks or lonely webmasters share
@@ -91,7 +89,7 @@ question.</p>
 </pre></div>
 <p>Well it is so remarkably easy. But I should notice that <code>range</code> is kind of like
 <code>xrange</code> and totally different from that in Python 2.7, which generates the
-complete yet hellish list, but we should say <code>xrange</code> is remained in Python 3
+complete yet deadly list, but we should say <code>xrange</code> is remained in Python 3
 while it is
 <a href="http://stackoverflow.com/questions/15014310/why-is-there-no-xrange-function-in-python3">tested</a>
 as a bit quicker than Python 3's <code>range</code>. Furthermore, when <code>range</code> object
@@ -101,14 +99,16 @@ becomes <code>list</code>, it illustrates a transition from immutability to muta
 <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="c1"># list is mutable</span>
 </pre></div>
 <p>Now the sequence is shuffled and looks beautiful when I print them (imagine you
-have done the printing with me. Alright it is unnecessary). So we can pop them
-into another sequence for pagination just as putting out something like image ID
-from the database. And the shuffled sequence can be stored in the client side
-(looks not that decent huh?).</p>
+have done the printing with me). So we can pop them into another sequence for
+pagination just as putting out something like image ID from the database. And
+the shuffled sequence can be stored in the client side (looks not that decent
+huh?).</p>
 <p>By the way, the speed is satisfactory and imagine it becomes a part of an HTTP
 request.</p>
-<div class="codehilite"><pre><span></span>python3 -c<span class="s1">'import random;seq=list(range(9999));random.shuffle(seq)'</span>  0.08s user
-0.02s system 99% cpu 0.097 total
+<div class="codehilite"><pre><span></span><span class="c1"># best case in 10 runs</span>
+$ <span class="nb">time</span> python3 -c<span class="s1">'import random;seq=list(range(9999));random.shuffle(seq)'</span> 
+0.02user 0.00system 0:00.03elapsed 90%CPU <span class="o">(</span>0avgtext+0avgdata 12228maxresident<span class="o">)</span>k
+0inputs+0outputs <span class="o">(</span>0major+1431minor<span class="o">)</span>pagefaults 0swaps
 </pre></div>
 <p>Back to the game, k1d!</p>
 <div class="codehilite"><pre><span></span><span class="n">page</span> <span class="o">=</span> <span class="p">[</span><span class="n">seq</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span> <span class="c1"># 10 items in a page</span>
@@ -131,19 +131,119 @@ algorithmic stuff which is sometimes painful for me and kinda off-kilter if
 productivity is heavily concerned, but yes I love Python, when I got
 <code>random.shuffle()</code> I totally threw off the nerdy cool things. Maybe some day
 I will be as bold as picking them up in my future inventive garage.</p>
-<h3>Back on dat 0xDEAD sh1t</h3>
+<h3>Moreover</h3>
+<p>Besides <code>random.shuffle()</code>, somehow I got inspired by an array rotating
+algorithm that takes constant space and re-wrote this shuffling script. I used
+<code>random.randrange()</code> to randomly index an item of the sequence, swapping it with
+the last item and <code>list.pop()</code> it to the <code>page</code> list.</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">seq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">))</span>
+<span class="n">page</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">randi</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
+    <span class="n">seq</span><span class="p">[</span><span class="n">randi</span><span class="p">],</span> <span class="n">seq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">seq</span><span class="p">[</span><span class="n">randi</span><span class="p">]</span>
+    <span class="n">page</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+</pre></div>
+<p>This just runs blazingly faster! You can checkout my following sketchy tests.</p>
+<div class="codehilite"><pre><span></span><span class="c1"># best case in 10 runs</span>
+
+$ <span class="nb">time</span> python3 shuffle.py <span class="c1"># using for-loop to create `page'</span>
+0.84user 0.00system 0:00.85elapsed 99%CPU <span class="o">(</span>0avgtext+0avgdata 51432maxresident<span class="o">)</span>k
+0inputs+0outputs <span class="o">(</span>0major+9693minor<span class="o">)</span>pagefaults 0swaps
+$ <span class="nb">time</span> python3 shuffle_shorter.py <span class="c1"># using list comprehension to create `page'</span>
+0.84user 0.00system 0:00.85elapsed 99%CPU <span class="o">(</span>0avgtext+0avgdata 51332maxresident<span class="o">)</span>k
+0inputs+0outputs <span class="o">(</span>0major+9696minor<span class="o">)</span>pagefaults 0swaps
+
+$ <span class="nb">time</span> python3 randrange.py
+0.03user 0.02system 0:00.05elapsed 94%CPU <span class="o">(</span>0avgtext+0avgdata 51548maxresident<span class="o">)</span>k
+0inputs+0outputs <span class="o">(</span>0major+9701minor<span class="o">)</span>pagefaults 0swaps
+$ <span class="nb">time</span> python3 randrange_generator.py <span class="c1"># using a while-True generator</span>
+0.04user 0.01system 0:00.06elapsed 96%CPU <span class="o">(</span>0avgtext+0avgdata 51564maxresident<span class="o">)</span>k
+0inputs+0outputs <span class="o">(</span>0major+9690minor<span class="o">)</span>pagefaults 0swaps
+</pre></div>
+<p>I should admit that <code>random.shuffle()</code> looks magical and subtle, but sometimes
+it can barely steal the game. </p>
 <h2>1. NaN the naughty k1d</h2>
-<h2>2. Fork with buffer</h2>
-<h2>3. One-line 24 game</h2>
-<h2>4. C Magic in Encoding? Nah</h2>
-<h2>Changelog</h2>
-<ul>
-<li>15 August 2016, started this post with problem set 0.<ul>
-<li>Gave the solution.</li>
-<li>Re-arranged some of my expressions and typesetting.</li>
-</ul>
-</li>
-</ul>
+<p><code>NaN</code> or <em>not a number</em> seems kinda rare in my daily jobs, but recently I caught
+it in some <code>if</code> conditions that easily drove me up the wall.</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">===</span> <span class="kc">NaN</span> <span class="c1">// looks reasonable, right?</span>
+<span class="kc">false</span>
+<span class="c1">// what the heck?</span>
+</pre></div>
+<p>So the examples below can bring your some lol wut as well.</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="kc">NaN</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">===</span> <span class="kc">NaN</span>
+<span class="kc">false</span>
+<span class="o">&gt;</span> <span class="kc">NaN</span> <span class="o">!==</span> <span class="kc">NaN</span>
+<span class="kc">true</span>
+</pre></div>
+<blockquote>
+<p>Geez.</p>
+</blockquote>
+<p>Certainly, there are a bunch of duplicate questions on Stack Overflow related to
+this, revealing that this is a floating point design for some engineering
+reasons, yup, neither programmers' nor mathematicians'... You can read
+<a href="http://stackoverflow.com/a/23666623">this answer</a> to have a first command of
+this special <em>value</em>.</p>
+<p>Hey, it's a value! Now can you get it? Or let me rewind this. <code>NaN</code> is designed
+for propagating the errors like a virus through all calculations. For instance,
+imagine a large mathematical expression where there is a division error like
+<code>Math.log(-1)</code> and you can barely stop the calculating. So <code>NaN</code> here is the
+naughty kid that makes the final result unreasonable to some extent. Because of
+being a special value, it could not spontaneously raise an exception to tell the
+user <em>it is going wrong</em>, which is not its responsibility (it's of the
+interpreter, or the compiler).</p>
+<p>E.g. <code>log(-1)</code> in py35 and node act differently. The former gives me a
+<code>ValueError</code>, and node just kicks out a boi called <code>NaN</code>.</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">math</span> <span class="n">domain</span> <span class="n">error</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># Note that 1 / 0 will raise a different kind of error</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+</pre></div>
+<p>Why did I test the <code>1 / 0</code> cliche? Because it is really enthralling to run it
+in node where it brings me a whole spacious universe.</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="kc">Infinity</span>
+</pre></div>
+<p>Back to the topic, the design of <code>NaN</code> is meant to make a compromise in a great
+number of language-specific scenarios like these above. And it turns out that
+the languages are the real naughty kids this time.</p>
+<h2>2. One-line 24 game</h2>
+<blockquote>
+<p>Phew, the last one on my 1st PsPs issue.</p>
+</blockquote>
+<p>Once I was on the plane to my hometown on a winter vacation, getting bored by
+the journey and deciding to put out my laptop. After its booting up, I opened
+the Python interpreter and wrote a handful of ugly code to create a 4-item list
+for a 24 game. Well, interpretation is always comfortable and intimate, letting
+me take a bunch of steps to make sure I can achieve a little tiny goal.</p>
+<p>But several months later, I came up with an idea of packaging it into a single
+line of code, making it suitable for a bash command or an alias.</p>
+<p>In brief, both list comprehension and <code>map</code> are desirable. It looks like this by
+using the latter in some readable manner:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">random_card</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">card_num</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">game</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">random_card</span><span class="p">,</span> <span class="n">card_num</span><span class="p">))</span>
+</pre></div>
+<p>Yup, so the densed one-line command is straightforward now:</p>
+<div class="codehilite"><pre><span></span>$ python3 -c<span class="s2">"import random;print(list(map(lambda x: random.randint(1,10),range(4))))"</span>
+</pre></div>
+<p>Anyway, the list-comprehension version looks kinda old-school sheen but shorter:</p>
+<div class="codehilite"><pre><span></span>$ python3 -c<span class="s2">"import random;print([random.randint(1,10)for i in range(4)])"</span>
+</pre></div>
+<p>Can't stop playing the game tho!</p>
+<h2>TBC</h2>
+<p><em>See ya when I see you.</em></p>
 
   <footer>Back to <a href="#">#top</a></footer>
 </article>
