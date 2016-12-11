@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="description" content="AnqurVanillapy's Blog">
+  <meta name="author" content="AnqurVanillapy">
+
+  <link rel="icon" href="static/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="static/codehilite.css">
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+
+  <title>PsPs 0x02</title>
+</head>
+<body>
+<header>
+<pre>
+<a href="/">
+ ██░ ██  ▒█████   ██▀███   ██▀███   ██▓ ▄▄▄▄    ██▓    ▓█████  ██▀███   ▄▄▄       ███▄ ▄███▓
+▓██░ ██▒▒██▒  ██▒▓██ ▒ ██▒▓██ ▒ ██▒▓██▒▓█████▄ ▓██▒    ▓█   ▀ ▓██ ▒ ██▒▒████▄    ▓██▒▀█▀ ██▒
+▒██▀▀██░▒██░  ██▒▓██ ░▄█ ▒▓██ ░▄█ ▒▒██▒▒██▒ ▄██▒██░    ▒███   ▓██ ░▄█ ▒▒██  ▀█▄  ▓██    ▓██░
+░▓█ ░██ ▒██   ██░▒██▀▀█▄  ▒██▀▀█▄  ░██░▒██░█▀  ▒██░    ▒▓█  ▄ ▒██▀▀█▄  ░██▄▄▄▄██ ▒██    ▒██ 
+░▓█▒░██▓░ ████▓▒░░██▓ ▒██▒░██▓ ▒██▒░██░░▓█  ▀█▓░██████▒░▒████▒░██▓ ▒██▒ ▓█   ▓██▒▒██▒   ░██▒
+ ▒ ░░▒░▒░ ▒░▒░▒░ ░ ▒▓ ░▒▓░░ ▒▓ ░▒▓░░▓  ░▒▓███▀▒░ ▒░▓  ░░░ ▒░ ░░ ▒▓ ░▒▓░ ▒▒   ▓▒█░░ ▒░   ░  ░
+</a>
+</pre>
+
+<nav>
+  <a href="https://github.com/anqurvanillapy">Code</a></li>
+  <a href="https://plus.google.com/+AnqurVanillapy">G+</a></li>
+  <a href="20160308-who-am-i-actually.html">About</a></li>
+  <a href="cv.html">CV</a></li>
+</nav>
+
+<pre>
+<a href="/">
+ ▒ ░▒░ ░  ░ ▒ ▒░   ░▒ ░ ▒░  ░▒ ░ ▒░ ▒ ░▒░▒   ░ ░ ░ ▒  ░ ░ ░  ░  ░▒ ░ ▒░  ▒   ▒▒ ░░  ░      ░
+ ░  ░░ ░░ ░ ░ ▒    ░░   ░   ░░   ░  ▒ ░ ░    ░   ░ ░      ░     ░░   ░   ░   ▒   ░      ░   
+ ░  ░  ░    ░ ░     ░        ░      ░   ░          ░  ░   ░  ░   ░           ░  ░       ░   
+                                             ░                                              
+</a>
+</pre>
+
+<blockquote>
+  <em>A blog of @anqurvanillapy.</em>
+</blockquote>
+</header>
+
+<main>
+
+<article>
+  <h1>PsPs 0x02</h1>
+  <p>
+    
+    <a href="properties.html#probset">#probset</a>
+    
+  </p>
+  <time>Dec 06, 2016</time>
+  <h2>Contents</h2>
+<ul>
+<li>0x0200 Sup, <code>mymap</code>?</li>
+<li>0x0201 What 3 lines of assembly can do?</li>
+<li>0x0202 Self-invocation of a lambda function</li>
+</ul>
+<h2>0. Sup, <code>mymap</code>?</h2>
+<p>Recently I heard about <em>Ur/Web</em> from my friend, fascinated by its well-known
+benchmarking highlights and functional syntax unlike <em>Lisp</em>. But, for some
+reason that might derive from a bitbucket, I didn't choose to pick up the basis
+of some <em>ML</em>-family languages like <em>Haskell</em> and <em>OCaml</em>, but downloaded and
+installed <a href="http://www.smlnj.org/">Standard ML of New Jersey</a> (<code>smlnj</code>) to give
+it a shot. There are many great tutorials and by-example guides to help with
+learning this good ol' language, and I simply got
+<a href="https://learnxinyminutes.com/docs/standard-ml/">this Learning-Standard-ML-In-Y-Minutes snippet</a>
+with less than 200 lines of code and 100+ lines of really helpful and qualified
+comments. Feel free to have a try in the suffusion of blue of the functional
+universe. <code>:D</code></p>
+<blockquote>
+<p><em>Hey so where the hell is the problem?</em></p>
+</blockquote>
+<p>Pattern matching and infix operators are, at first sight, kinda eerie but
+attention-grabbing. I noticed the implementation of <code>map</code> just looked so tight
+and it basically blew my mind. Check it out:</p>
+<div class="codehilite"><pre><span></span><span class="kr">fun</span> <span class="nf">map</span> <span class="n">f</span> <span class="p">[]</span> <span class="p">=</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">map</span> <span class="n">f</span> <span class="p">(</span><span class="n">x::xs</span><span class="p">)</span> <span class="p">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">::</span> <span class="n">map</span> <span class="n">f</span> <span class="n">xs</span>
+</pre></div>
+<p>The second match of <code>map</code> could destructure the first element of the list and
+invoke itself with the rest of the elements as the argument. <em>Holy shmoly.</em></p>
+<p>So at the moment I just asked myself... How we implemented it in the imperative
+world? In Python I thought it was easy to deal with. Destructuring the first
+item and recursive invocation are not actually unrealistic, but it doesn't come
+so naturally in a <em>pythonic</em> way. We could iterate with the given list, call
+the function with its items, and finally add the results to a temporary list for
+returning. However, as you can tell, list comprehension could ease this pain.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">mymap</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">]</span>
+</pre></div>
+<blockquote>
+<p>Bam! Not a problem yo!</p>
+</blockquote>
+<p>Surely it is painless. But meanwhile I re-examined the usage of <code>map()</code> in py35,
+where it could map multiple <em>iterables</em> (e.g. <code>list</code>, <code>set</code>) in parallel. For
+instance:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</pre></div>
+<p>So why not extend our little <code>mymap()</code> for a better use? It's not that
+complicated anyway, where an <code>*</code> operator and a <code>zip()</code> are the keys to the
+solutions.</p>
+<div class="codehilite"><pre><span></span><span class="n">mymap</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">func</span><span class="p">,</span> <span class="n">lst</span><span class="p">,</span> <span class="o">*</span><span class="n">lsts</span><span class="p">:</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="o">*</span><span class="n">lsts</span><span class="p">)]</span>
+</pre></div>
+<p>Oops, I just bound a lambda function to <code>mymap</code>, which might look more compact
+and subtle. Note that <code>map()</code> in Python is implemented in C
+(<a href="https://hg.python.org/cpython/file/tip/Python/bltinmodule.c#l940">source here</a>)
+which returns an iterable object called <code>map</code>. Since it is well-supported, let's
+hug this built-in goodness!</p>
+<p>Anyway, <code>mymap</code> doesn't look so bad, I think.</p>
+<h3>Moreover</h3>
+<blockquote>
+<p><em>But what if it goes recursively like...</em> Yeah, I'm passionate to do that too!</p>
+</blockquote>
+<p>The <code>::</code> operator of Standard ML that shows in <code>(x::xs)</code> is called <code>infixr</code>,
+which means it is right-associative. So the first step for me is to find a
+FIFO data type in Python to simulate the right-associative destructuring, for
+which a <code>deque</code> in <code>collections</code> module is suitable here.</p>
+<p>Since the entry <code>list</code> should be converted into a <code>deque</code>, I simply wrapped the
+ready-to-go recursive function <code>fn</code> in <code>mymap()</code>, and also placed a temporary
+list for returning. Here's my first try:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+
+<span class="k">def</span> <span class="nf">mymap</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+    <span class="n">deq</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">q</span><span class="p">:</span> <span class="k">return</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">popleft</span><span class="p">()))</span>
+        <span class="n">fn</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+
+    <span class="n">fn</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">deq</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret</span>
+</pre></div>
+<p>Bingo! Now you may understand why I used a <code>deque</code> right here. Because of its
+<code>popleft()</code> method, we could have some fun with our pythonic destructuring and
+some mutability tricks, and don't even have to pass the slices like <code>lst[0]</code> and
+<code>lst[1:]</code> to the function itself, where there might be a potential higher
+complexity (Why? My guess is <code>popleft()</code> could take constant time here but list
+slice may not steal the show for now. What do your think?). Sure that's a
+reminder of a benchmarking some moments later.</p>
+<blockquote>
+<p>And now... let's shout out to <code>lambda</code>! Why not!</p>
+</blockquote>
+<p><code>lambda</code> is sometimes adorable for some performant and syntatic improvements.
+However there are 1 statement and 2 expressions waiting for their encapsulation.
+So how could we put all of these into a simple anonymous function? My answer
+is... <em>ternary condition expression</em>!</p>
+<div class="codehilite"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">fn</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">popleft</span><span class="p">()))</span> <span class="k">else</span> <span class="bp">None</span>
+<span class="c1"># `else None' here is for returning from lambda, and due to the side effects in</span>
+<span class="c1"># appending new items to the list, we can do this trick in the if condition.</span>
+<span class="c1"># But note that this line won't work.</span>
+</pre></div>
+<p>My thought about where to put the little naughty <code>append()</code> roughly depended on
+the assumption of its returning a boolean, but in fact it returns <code>None</code> whether
+it succeeds or not. <em>Yeeeell!</em></p>
+<p>So which one could be replaced or combined with our necessary <code>append()</code>
+expression? We can take the <em>deque</em> itself! A checking of its length is
+desirably for the win.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">mymap</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+    <span class="n">deq</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">fn</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">popleft</span><span class="p">()))</span> <span class="ow">or</span> <span class="n">q</span> <span class="k">else</span> <span class="bp">None</span>
+    <span class="c1"># Dequeue and if q is empty, safely get out of lambda</span>
+
+    <span class="n">fn</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">deq</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret</span>
+</pre></div>
+<blockquote>
+<p>Nailed it!</p>
+</blockquote>
+<p>Besides the wrapped recursive functions, I also came up with an idea of using a
+non-wrapped global function with list concatenation, which might look a little
+more straighforward.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">mymap</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+    <span class="n">deq</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">deq</span><span class="p">:</span> <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="n">deq</span><span class="o">.</span><span class="n">popleft</span><span class="p">())]</span> <span class="o">+</span> <span class="n">mymap</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">deq</span><span class="p">)</span>
+</pre></div>
+<p>If you're curious about their performances, check out <a href="#add-gist-here">this gist</a>
+and run it on your machine for the details (there are also some benchmarks for
+the list-slice-implemented <code>mymap</code>s, as mentioned above), where the non-wrapped
+one would run much slower, while our one-line lambda fellow is the remarkable
+winner!</p>
+<p>I haven't thoroughly known about why they were much different in performance.
+Anyway, <em>we did it!</em></p>
+<h2>TBC</h2>
+<p>Got some suggestions? Some corrections, perhaps? Feel free to reach me and point
+them out. <em>And please stay tuned!</em></p>
+
+  <footer>Back to <a href="#">#top</a></footer>
+</article>
+
+</main>
+
+<footer>
+<pre>
+$ echo "Gvzr vf ehaavat bhg. Znxr n zbir." | rot13
+</pre>
+</footer>
+</body>
+</html>

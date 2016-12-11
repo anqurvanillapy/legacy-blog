@@ -146,6 +146,7 @@ sneaky-beaky-like in C for a low-level algorithm implementation.</p>
 swapping and steal our target!</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 
+
 <span class="n">seq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">))</span>
 <span class="n">page</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -153,7 +154,7 @@ swapping and steal our target!</p>
     <span class="n">randi</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">))</span> <span class="c1"># seq is decremental</span>
     <span class="n">page</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">randi</span><span class="p">))</span>
 </pre></div>
-<p>This just runs blazingly faster! You can checkout my following sketchy tests.</p>
+<p>This just runs blazingly faster! You can check out my following sketchy tests.</p>
 <div class="codehilite"><pre><span></span><span class="c1"># best case in 10 runs, with random range 1,000,000</span>
 
 $ <span class="nb">time</span> python3 shuffle.py <span class="c1"># using for-loop to create `page'</span>
@@ -181,9 +182,9 @@ it in some <code>if</code> conditions when writing in node which easily drove me
 wall.</p>
 <div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">===</span> <span class="kc">NaN</span> <span class="c1">// looks reasonable, right?</span>
 <span class="kc">false</span>
-<span class="c1">// what the heck?</span>
+<span class="o">&gt;</span> <span class="c1">// what the heck?</span>
 </pre></div>
-<p>So the examples below can bring your some lol wut as well.</p>
+<p>So the examples below can bring your some lol wuts as well.</p>
 <div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="kc">NaN</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">===</span> <span class="kc">NaN</span>
 <span class="kc">false</span>
 <span class="o">&gt;</span> <span class="kc">NaN</span> <span class="o">!==</span> <span class="kc">NaN</span>
@@ -241,6 +242,7 @@ line of code, making it suitable for a bash command or an alias.</p>
 <p>In brief, both list comprehension and <code>map</code> are desirable. It looks like this by
 using the latter in some readable manner:</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
 
 <span class="n">random_card</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">card_num</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>

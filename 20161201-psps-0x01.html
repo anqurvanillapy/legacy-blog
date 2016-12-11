@@ -62,63 +62,7 @@
 <li>0x0100 Fork with buffer</li>
 <li>0x0101 C magic in encoding? Nah</li>
 <li>0x0102 File or dir, ternarily</li>
-<li>0x0103 Sup, <code>mymap</code>?</li>
 </ul>
-<h2>3. Sup, <code>mymap</code>?</h2>
-<blockquote>
-<p><em>Wow! A bonus!</em> Well actually it didn't wow you right? Anyway off we go.</p>
-</blockquote>
-<p>Recently I heard about <em>Ur/Web</em> from my friend, fascinated by its well-known
-benchmarking highlights and functional syntax unlike <em>Lisp</em>. But, for some
-reason that might derive from a bitbucket, I didn't choose to pick up the basis
-of some <em>ML</em>-family languages like <em>Haskell</em> and <em>OCaml</em>, but downloaded and
-installed <a href="http://www.smlnj.org/">Standard ML of New Jersey</a> (<code>smlnj</code>) to give
-it a shot. There are many great tutorials and by-example guides to help with
-learning this good ol' language, and I simply got
-<a href="https://learnxinyminutes.com/docs/standard-ml/">this Learning-Standard-ML-In-Y-Minutes snippet</a>
-with less than 200 lines of code and 100+ lines of really helpful and qualified
-comments. Feel free to have a try in the suffusion of blue of the functional
-universe. <code>:D</code></p>
-<blockquote>
-<p><em>Hey so where the hell is the problem?</em></p>
-</blockquote>
-<p>Pattern matching and infix operators are, at first sight, kinda eerie but
-attention-grabbing. And I noticed the implementation of <code>map</code> just looked so
-tight and it basically blew my mind. Check it out:</p>
-<div class="codehilite"><pre><span></span><span class="kr">fun</span> <span class="nf">map</span> <span class="n">f</span> <span class="p">[]</span> <span class="p">=</span> <span class="p">[]</span>
-  <span class="p">|</span> <span class="nf">map</span> <span class="n">f</span> <span class="p">(</span><span class="n">x::xs</span><span class="p">)</span> <span class="p">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">::</span> <span class="n">map</span> <span class="n">f</span> <span class="n">xs</span>
-</pre></div>
-<p>The second match of <code>map</code> could destructure the first element of the list and
-invoke itself with the rest of the elements as the argument. <em>Holy shmoly.</em></p>
-<p>So at the moment I just asked myself... How we implemented it in the imperative
-world? In Python I thought it was easy to deal with. Destructuring the first
-item and recursive invocation are not actually unrealistic, but it doesn't come
-so naturally in a <em>pythonic</em> way. We could iterate with the given list, call
-the function with its items, and finally add the results to a temporary list for
-returning. However, as you can tell, list comprehension could ease this pain.</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">mymap</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">]</span>
-</pre></div>
-<blockquote>
-<p>Bam! Not a problem yo!</p>
-</blockquote>
-<p>Surely it is painless. But meanwhile I re-examined the usage of <code>map()</code> in py35,
-where it could map multiple <em>iterables</em> (e.g. <code>list</code>, <code>set</code>) in parallel. For
-instance:</p>
-<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
-<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
-</pre></div>
-<p>So why not extend our little <code>mymap()</code> for a better use? It's not that
-complicated anyway, where an <code>*</code> operator and a <code>zip()</code> are the keys to the
-solutions.</p>
-<div class="codehilite"><pre><span></span><span class="n">mymap</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">func</span><span class="p">,</span> <span class="n">lst</span><span class="p">,</span> <span class="o">*</span><span class="n">lsts</span><span class="p">:</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="o">*</span><span class="n">lsts</span><span class="p">)]</span>
-</pre></div>
-<p>Oops, I just bound a lambda function to <code>mymap</code>, which might look more compact
-and subtle. Note that <code>map()</code> in Python is implemented in C
-(<a href="https://hg.python.org/cpython/file/tip/Python/bltinmodule.c#l940">source here</a>)
-which returns an iterable object called <code>map</code>. Since it is well-supported, let's
-hug this built-in goodness!</p>
-<p>Anyway, <code>mymap</code> doesn't look so bad, I think.</p>
 <h2>TBC</h2>
 <p>Got some suggestions? Some corrections, perhaps? Feel free to reach me and point
 them out. <em>And please stay tuned!</em></p>
