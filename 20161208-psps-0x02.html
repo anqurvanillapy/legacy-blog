@@ -60,7 +60,7 @@
   <h2>Contents</h2>
 <ul>
 <li>0x0200 Sup, <code>mymap</code>?</li>
-<li>0x0201 What 3 lines of assembly can do?</li>
+<li>0x0201 Job distribution with Python coroutines</li>
 <li>0x0202 Self-invocation of a lambda function</li>
 </ul>
 <h2>0. Sup, <code>mymap</code>?</h2>
@@ -187,13 +187,26 @@ more straighforward.</p>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">deq</span><span class="p">:</span> <span class="k">return</span> <span class="p">[]</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="n">deq</span><span class="o">.</span><span class="n">popleft</span><span class="p">())]</span> <span class="o">+</span> <span class="n">mymap</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">deq</span><span class="p">)</span>
 </pre></div>
-<p>If you're curious about their performances, check out <a href="#add-gist-here">this gist</a>
+<p>If you're curious about their performances, check out
+<a href="https://gist.github.com/anqurvanillapy/fa97acf6f0a6e960ff54854f5596125a">this gist</a>
 and run it on your machine for the details (there are also some benchmarks for
 the list-slice-implemented <code>mymap</code>s, as mentioned above), where the non-wrapped
 one would run much slower, while our one-line lambda fellow is the remarkable
 winner!</p>
 <p>I haven't thoroughly known about why they were much different in performance.
 Anyway, <em>we did it!</em></p>
+<h2>1. Job distribution with Python coroutines</h2>
+<p>Nah, so you might know about Python's <code>async</code>/<code>await</code>, right? Or even you've
+already experimented with the async functions in the edgiest Chrome Canary. For
+me, I didn't dip my toes first into the welcome-to-the-chaos asynchronous world
+of rawly using either <code>@asyncio.coroutine</code> or <code>async def</code>, but had a taste of
+some asynchronous frameworks like <code>aiohttp</code> and <code>curio</code>.</p>
+<p>Hmmm, fortunately, after one of my brooding waking ups (literally), I got an
+easy problem to solve with coroutines.</p>
+<blockquote>
+<p><em>Hey so where the hell is the problem, again?</em></p>
+</blockquote>
+<p>Well, it's mainly based on a Google Chrome Developers video </p>
 <h2>TBC</h2>
 <p>Got some suggestions? Some corrections, perhaps? Feel free to reach me and point
 them out. <em>And please stay tuned!</em></p>

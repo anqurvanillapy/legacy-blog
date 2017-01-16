@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="description" content="AnqurVanillapy's Blog">
+  <meta name="author" content="AnqurVanillapy">
+
+  <link rel="icon" href="static/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="static/codehilite.css">
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+
+  <title>Behind Padding: Floor and Ceiling Functions</title>
+</head>
+<body>
+<header>
+<pre>
+<a href="/">
+ ██░ ██  ▒█████   ██▀███   ██▀███   ██▓ ▄▄▄▄    ██▓    ▓█████  ██▀███   ▄▄▄       ███▄ ▄███▓
+▓██░ ██▒▒██▒  ██▒▓██ ▒ ██▒▓██ ▒ ██▒▓██▒▓█████▄ ▓██▒    ▓█   ▀ ▓██ ▒ ██▒▒████▄    ▓██▒▀█▀ ██▒
+▒██▀▀██░▒██░  ██▒▓██ ░▄█ ▒▓██ ░▄█ ▒▒██▒▒██▒ ▄██▒██░    ▒███   ▓██ ░▄█ ▒▒██  ▀█▄  ▓██    ▓██░
+░▓█ ░██ ▒██   ██░▒██▀▀█▄  ▒██▀▀█▄  ░██░▒██░█▀  ▒██░    ▒▓█  ▄ ▒██▀▀█▄  ░██▄▄▄▄██ ▒██    ▒██ 
+░▓█▒░██▓░ ████▓▒░░██▓ ▒██▒░██▓ ▒██▒░██░░▓█  ▀█▓░██████▒░▒████▒░██▓ ▒██▒ ▓█   ▓██▒▒██▒   ░██▒
+ ▒ ░░▒░▒░ ▒░▒░▒░ ░ ▒▓ ░▒▓░░ ▒▓ ░▒▓░░▓  ░▒▓███▀▒░ ▒░▓  ░░░ ▒░ ░░ ▒▓ ░▒▓░ ▒▒   ▓▒█░░ ▒░   ░  ░
+</a>
+</pre>
+
+<nav>
+  <a href="https://github.com/anqurvanillapy">Code</a></li>
+  <a href="https://plus.google.com/+AnqurVanillapy">G+</a></li>
+  <a href="20160308-who-am-i-actually.html">About</a></li>
+  <a href="cv.html">CV</a></li>
+</nav>
+
+<pre>
+<a href="/">
+ ▒ ░▒░ ░  ░ ▒ ▒░   ░▒ ░ ▒░  ░▒ ░ ▒░ ▒ ░▒░▒   ░ ░ ░ ▒  ░ ░ ░  ░  ░▒ ░ ▒░  ▒   ▒▒ ░░  ░      ░
+ ░  ░░ ░░ ░ ░ ▒    ░░   ░   ░░   ░  ▒ ░ ░    ░   ░ ░      ░     ░░   ░   ░   ▒   ░      ░   
+ ░  ░  ░    ░ ░     ░        ░      ░   ░          ░  ░   ░  ░   ░           ░  ░       ░   
+                                             ░                                              
+</a>
+</pre>
+
+<blockquote>
+  <em>A blog of @anqurvanillapy.</em>
+</blockquote>
+</header>
+
+<main>
+
+<article>
+  <h1>Behind Padding: Floor and Ceiling Functions</h1>
+  <p>
+    
+    <a href="properties.html#maths">#maths</a>
+    
+    <a href="properties.html#course">#course</a>
+    
+  </p>
+  <time>Jan 10, 2017</time>
+  <blockquote>
+<p>Knock, knock, question ahead!</p>
+</blockquote>
+<p>Let's first check out a little hack below to introduce our main focus of this
+post. In BMP image file processing, each row's size of the pixel storage shoud
+be rounded up to a multiple of 4 bytes by padding, and the following method is
+presented (you could also read
+<a href="https://en.wikipedia.org/wiki/BMP_file_format#Pixel_storage">the related section on Wikipedia</a>):</p>
+<p><img alt="bmprowsize" src="static/bmprowsize.png"/></p>
+<p><em>(The special parentheses indicate a
+<a href="https://en.wikipedia.org/wiki/Floor_and_ceiling_functions">floor function</a>.)</em></p>
+<p>For instance, a <code>250*200</code>-sized 8-bit image must have <code>252</code> bytes in each row,
+which could be calculated by the following equivalent Python code:</p>
+<div class="codehilite"><pre><span></span><span class="n">width</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">bit_count</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="c1"># Operator `//` could do the round down</span>
+<span class="n">row_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">bit_count</span> <span class="o">+</span> <span class="mi">31</span><span class="p">)</span> <span class="o">//</span> <span class="mi">32</span> <span class="o">*</span> <span class="mi">4</span>   <span class="c1"># the result is `252`</span>
+</pre></div>
+<p>So here is our topic (which you might guess it without effort...):</p>
+<blockquote>
+<p><code>31</code> &amp; <code>32</code>? <em>Floor function</em>? And how did we get that formula?</p>
+</blockquote>
+<p>Let's keep it up and deal with it!</p>
+<h2>How do we solve some rounding, in general?</h2>
+<p>First of all, everything we need in the very beginning is to answer a simple
+and specific question:</p>
+<blockquote>
+<p>Given an integer <code>5</code>, how to find its next nearest integer that is a multiple
+of <code>4</code>, where <code>8</code> is the result?</p>
+</blockquote>
+<p>The solution could be separated into several steps as follows:</p>
+<ol>
+<li>Let <code>5</code> be divided by <code>4</code>, and we get <code>1.25</code></li>
+<li>Round up <code>1.25</code>, and that's <code>2</code></li>
+<li><code>2</code> times <code>4</code>, and here is the <code>8</code>!</li>
+</ol>
+<p>But here we could make it more formal than my simple English, by introducing
+<em>ceiling function</em>, which rounds up a number to the smallest integer that is not
+less than the previous one (e.g. <code>ceil(1.25)</code> returns <code>2</code> as mentioned above).
+A ceiling function could be represented as <code>ceil(y)</code> or ⌈<code>y</code>⌉. So
+our solution comes more gracefully:</p>
+<p><img alt="ceilfunc" src="static/ceilfunc.png"/></p>
+<p><em>(<code>m</code> and <code>n</code> are <code>4</code> and <code>5</code> respectively here.)</em></p>
+<p>Next, we could go further and make all these problem-specific.</p>
+<h2>Get to know what to do</h2>
+<p>Recalling the question above, we're gonna count the bytes in each row of the
+pixel array, which could be solved straightly by making the product of <em>image
+width</em> and <em>bits per pixel</em> divided by <code>8</code> bits, right?</p>
+<p><img alt="bmprowsize-wrong" src="static/bmprowsize-wrong.png"/></p>
+<p>But the result might contain fractional parts, and we are supposed to round it
+up to a multiple of <code>4</code>. So now let's make it a whole like the <code>n</code> above and we
+can get the certainly correct answer here:</p>
+<p><img alt="bmprowsize-ceil" src="static/bmprowsize-ceil.png"/></p>
+<blockquote>
+<p>Kinda childish maths thing...</p>
+</blockquote>
+<h2>Problem solved, and where shall we go now?</h2>
+<p>The above formula can exactly solve the padding question, but we can basically
+better the solution by making it practical and digging deeper.</p>
+<blockquote>
+<p>But how and...why?</p>
+</blockquote>
+<p>Taking the ceiling is not that practical in computer programming, for usually
+many implementations and standards prefer taking the floor, or we can say, the
+floor function could be found in some effective and built-in arithmetic
+operators, not in some cool modules from standard or third-party libraries. Yes,
+I mean the division operator, for example, generally has the nature of taking
+the floor in calculation (e.g. in Python 2 it is <code>/</code>, but in Python 3 it should
+be <code>//</code>, to round down the quotient). So our new question is clear: <em>How to
+convert the ceiling function into a floor one?</em></p>
+<p>Avoid figuring it out through a top-down approach, we can come straight to the
+point by searching for some properties of floor and ceiling functions. On the
+<a href="https://en.wikipedia.org/wiki/Floor_and_ceiling_functions#cite_ref-16">Wikipedia page</a>
+you can notice that there is a property about quotient and conversion, and it
+looks like:</p>
+<p><img alt="floor-ceil-conversion" src="static/floor-ceil-conversion.png"/></p>
+<p>Put the variables above into this formula, and we now have our final answer to
+the question!</p>
+<p><img alt="bmprowsize" src="static/bmprowsize.png"/></p>
+<blockquote>
+<p>Well done, only JFGI things!</p>
+</blockquote>
+<p>But Google-oriented programming might be more boring than digging in some maths
+stuff. Maths seem not kinda like the abstractions or interfaces that perform
+black-box manipulations, at least there is no such information hiding techniques
+for somewhat an encapsulation, IMO.</p>
+<h2>So, wanna prove it?</h2>
+<p>I don't mean to present a solid proof for the property, but there is a vivid one
+that probably could satisfy your curiosity, inspired by
+<a href="http://math.stackexchange.com/a/38071">this answer</a>.</p>
+<p>Let's imagine...</p>
+<ol>
+<li>There is an interval <code>[a, b]</code> where <code>a</code> and <code>b</code> might have fractional parts,
+and ⌈<code>a</code>⌉ is <code>n</code>, ⌊<code>b</code>⌋ is <code>n + m - 1</code>, so you can
+calculate that between <code>a</code> and <code>b</code> there are <code>n + m - 1 - n + 1 = m</code> integers</li>
+<li>Next we use <code>m</code> to divide both <code>a</code> and <code>b</code>, making the interval shrink <code>m</code>
+times</li>
+<li>How many integers are there between <code>[a/m, b/m]</code> now? Only <code>m / m = 1</code> unique
+integer! And ⌈<code>a/m</code>⌉ and ⌊<code>b/m</code>⌋ are now equal to the
+number, so the formula will look like the original one</li>
+</ol>
+<p><img alt="floor-ceil-conversion" src="static/floor-ceil-conversion.png"/></p>
+<p>Q.E.D.</p>
+<p><em>(Notice that this is just a conceptual proof. This problem is actually exercise
+3.12 in Concrete Mathematics, where the proof is more definite.)</em></p>
+<h2>Wrap up</h2>
+<p>There will be some scenerios that we could optimize or improve our works in some
+unexpected ways, like this time I need to introduce some algebra for some hints
+of practical enhancements. Anyway, this post is NBD, and rather my minimal
+review of using mathematical approaches to solve problems. Then, keep calm and
+bring on the mathsaber?</p>
+
+  <footer>Back to <a href="#">#top</a></footer>
+</article>
+
+</main>
+
+<footer>
+<pre>
+$ echo "Gvzr vf ehaavat bhg. Znxr n zbir." | rot13
+</pre>
+</footer>
+</body>
+</html>
