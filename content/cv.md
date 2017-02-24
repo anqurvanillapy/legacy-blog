@@ -3,74 +3,75 @@ type:   misc
 
 > [English](cv.html) / [中文](cv-zh_cn.html).
 
-- As of: **May 28th, 2016**.
+- As of: **February 24th, 2017**.
 - Permalink: [anqurvanillapy.github.io/cv.html](https://anqurvanillapy.github.io/cv.html).
 - Printable Versions: [English](static/cv.html) / [中文](static/cv-zh_cn.html).
 
-## Xingyu Lu (a.k.a. AnqurVanillapy)
+## Xingyu Lu (@anqurvanillapy)
 
 - Born on the leap day, 1996.
 - Haikou, Hainan, my hometown. Now in Zhuhai, Guangdong.
-- Search for **AnqurVanillapy**. All about me.
-- Email me at [anqurvanillapy@gmail.com](mailto:anqurvanillapy@gmail.com).
+- Google **AnqurVanillapy**, that's me (about 1,500 results).
+- Email: [anqurvanillapy@gmail.com](mailto:anqurvanillapy@gmail.com).
+Public key and directory:
+[keybase.io/anqurvanillapy](https://keybase.io/anqurvanillapy). Blog:
+[anqurvanillapy.github.io](https://anqurvanillapy.github.io/).
 
 ## Education
 
 - Jinan University Zhuhai Campus:
-    + 2014~now, Software Engineering (four-year undergraduate).
+    + From 2014, majoring in software engineering (four-year bachelor degree).
 
-## Working Experiences
+## Working Experiences (in student organizations)
 
-- In student organizations:
-    + JNURen Network Alliance (of CYL Working Committee):
-        + 2014~2015: Officer.
-        + 2015~2016: Minister.
-    + Jinan Developer Community (of CYL College Committee And Student Union):
-        + 2014~2015: Officer.
-        + 2015~2016: Tech Leader.
-- In student associations:
-    + JNU Guitar Society:
-        + 2014~2015: Officer.
-        + 2015~2016: Minister (dropped out).
+- JNURen Network Alliance (of CYL Working Committee):
+    + 2014~2015: Officer.
+    + 2015~2016: Minister.
+- Jinan Developer Community (formerly of KSC, currently of CYL College Committee
+And Student Union):
+    + 2014~2015: Officer.
+    + 2015~2016: Tech Leader.
 
 ## Computer Skills
 
-- Languages (sorted by skill):
-    + General-purpose: Python 2/3, JavaScript, C, Java, Rust, asm, PHP.
-    + DSL: Markdown, HTML5, CSS3, JSON, reStructuredText, Makefile, Shell
-    scripts, TOML.
-- Using: Ubuntu, Bootstrap 3, Node.js, Bower, Gulp, Flask, Firebase, MySQL,
-Heroku, PhoneGap/Apache Cordova, Zsh, Atom, Vim.
-- Area of interests (sorted by enthusiasm): Web, Cloud Computing,
-Compilation/Interpretation, Operating System, Systems Architecture, Graphics
-Programming, Game Development, Functional Programming.
-- Mainly on GNU/Linux, sometimes on DOS, barely on Windows and Mac OS.
+- Toy-making: Python (2.7/3.5/3.6), JavaScript (Node.js/ES6), Bash.
+- Production and learning: C++ (C++11), C (ANSI C/C99), Java (1.8), x86_64
+instruction set.
+- PL buff, recently in love with Pony, Standard ML, Forth, etc.
+- Mainly on GNU/Linux, once on MS-DOS, and barely on Windows and macOS.
+- OJ profile (Leetcode): [leetcode.com/anqurvanillapy](https://leetcode.com/anqurvanillapy/).
+- Attach crucial importance to correctness, performance, compatibility and
+legibility. Survive the dark side of hardwares, and the hazard of race
+conditions. Pace with trendies on Hacker News, and also the classy old-school
+techies.
 
 ## Major Projects
 
 > My repos: [github.com/anqurvanillapy](https://github.com/anqurvanillapy?tab=repositories).
 
-- [GMHP](https://github.com/anqurvanillapy/gmhp), or GemHeap, an amateur
-slideshow generator from specifically formatted Markdown to beautiful HTML and
-PDF presentations. Demo here: [anqurvanillapy.github.io/gmhp](https://anqurvanillapy.github.io/gmhp).
-- [Viotry](https://github.com/anqurvanillapy/viotry), a mobile application for
-who loves innovating new words, the people so called *neologophile*, using
-hybrid app platform PhoneGap (on-going).
-- [Starnote](https://github.com/anqurvanillapy/starnote), adding custom tags
-locally to your GitHub starred repos for convenient management.
-- [Yungboy](https://github.com/anqurvanillapy/yungboy), a simple Python library
-and set of utilities for GBA game development (on-going).
-- [diypy3](https://github.com/anqurvanillapy/diypy3), a CPython-implemented data
-structure library in Python 3.
+- [pipesicle](https://github.com/anqurvanillapy/pipesicle), formerly known as
+postocal, a SSG-generator, which could be used for creating slideshow/wiki/blog
+generator. Efficient for Markdown-based writing and CSS-based theme
+customization. My blog and project GmHp are based on this.
+- [GmHp](https://github.com/anqurvanillapy/gmhp), aka GemHeap, based on
+pipesicle, used for generating Markdown-based slideshow in HTML or PDF format.
+- [libscoa](https://github.com/anqurvanillapy/libscoa) (WIP), lightweight C++
+actor framework, whose hacking style is similar to Erlang (limited use of some
+pattern matching).
+- [preldb](https://github.com/anqurvanillapy/preldb), reference implementation
+of Python's module `dbm.dumb`, which is the interface of UNIX database engine
+dbm, with random backup and committing support.
+- In dev of a student assessment web app with one co-worker, who completed the
+prototyping, I finished the rest of the work. Solution stack: SAE (MySQL),
+MySQLdb, Flask, Jinja2, Bootstrap 3, jQuery. Shutdown due to the funding.
+- Misc: Personal [scripts](https://github.com/anqurvanillapy/scripts),
+[cppl](https://github.com/anqurvanillapy/cppl) some C/C++ experiment code,
+[probset](https://github.com/anqurvanillapy/probset) for problem solving.
 
 ## Miscellanea
 
-- Languages (Using Wikipedia:Babel):
-    + Chinese: (zh-N) 中文是这位用户的母语。
-    + English: (en-3) This user is able to contribute with an advanced level of
-    English.
-    + Hainanese: (zh-qiong-2) 该用户能以一般的海南话进行交流。
-    + Spannish: (es-1) Este usuario puede contribuir con un nivel básico de
-    español.
-- Interests:
-    + Indie, beatmaking, band, etymology, subcultures/subgenres, memes.
+- Current reading (decreasing order of knowledge): Intermediate Python, source
+of ponylang, APUE, UDPv1, modern OS, SICP, GC - algos & impls, Accelerated C++,
+pb7con, Brave Clojure, dragon book, CLRS.
+- Languages: Chinese, English (CET Band-6 score of 558).
+- Hobbies: English, basketball, guitar, beatmaking, full band.
