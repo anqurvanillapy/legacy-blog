@@ -71,8 +71,13 @@ main > ul {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-article > p:last-of-type:after {
-  content: "\220e";
+article > *:nth-last-child(2):after {
+  margin-left: 1em;
+  background: #aaa;
+  color: #fff;
+  font-family: monospace;
+  font-size: smaller;
+  content: "EOF";
 }
 article > footer {
   text-align: right;
